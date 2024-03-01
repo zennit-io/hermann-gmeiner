@@ -662,13 +662,7 @@ export const OptionKey = ({ className }: { className: string }) => {
         strokeWidth={2}
         points="10.6,5 4,5 4,7 9.4,7 18.4,27 28,27 28,25 19.6,25 "
       />
-      <rect
-        id="_Transparent_Rectangle_"
-        className="st0"
-        width="32"
-        height="32"
-        stroke="none"
-      />
+      <rect id="_Transparent_Rectangle_" width="32" height="32" stroke="none" />
     </svg>
   );
 };

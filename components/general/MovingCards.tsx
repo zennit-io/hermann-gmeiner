@@ -90,7 +90,7 @@ const MovingCards = ({
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {items.map(({ name, quote, title, image }, i) => (
+        {items.map(({ name, quote, title, image }) => (
           <li
             className="group relative max-w-full shrink-0 transition-transform duration-500 hover:z-[1000] hover:scale-[110%]"
             style={{
@@ -146,7 +146,7 @@ const MovingCards = ({
               <blockquote>
                 <div
                   aria-hidden="true"
-                  className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5"
+                  className="pointer-events-none absolute -left-0.5 -top-0.5 z-[-1]"
                 ></div>
                 <span className=" relative z-20 text-[8px] leading-tight text-gray-100">
                   {quote}
