@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import cn from "@/lib/cn";
 
 import { IconCircleArrowUpRight } from "@tabler/icons-react";
 
 type MovingCardProps = {
-  image?: string;
+  image?: string | StaticImageData;
   quote: string;
   name: string;
   title: string;
