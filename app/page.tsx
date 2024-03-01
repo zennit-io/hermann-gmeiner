@@ -3,7 +3,7 @@ import ZennitBadge from "@/icons/ZennitBadge";
 import StyledBackground from "@/components/banner/StyledBackground";
 import MovingCards from "@/components/general/MovingCards";
 import Navbar from "@/components/home/Navbar";
-import testImage from "../public/images/project-1.jpeg";
+
 const MacbookScroll = dynamic(
   () => import("@/components/banner/MacbookScroll"),
   { ssr: false }
@@ -63,86 +63,42 @@ const HermannPage = () => {
 const projects = [
   [
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-  ],
-  [
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
@@ -151,86 +107,42 @@ const projects = [
   ],
   [
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-  ],
-  [
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
-      quote:
-        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
-      name: "Linja e Keshillimit per Gra dhe Vajza",
-      title: "Vajzat ne TIK",
-    },
-    {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
@@ -239,42 +151,130 @@ const projects = [
   ],
   [
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
       title: "Vajzat ne TIK",
     },
     {
-      image: testImage,
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+  ],
+  [
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+  ],
+  [
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
+      quote:
+        "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
+      name: "Linja e Keshillimit per Gra dhe Vajza",
+      title: "Vajzat ne TIK",
+    },
+    {
+      image: require("../public/images/project-1.jpeg"),
       quote:
         "Linja e Këshillimit për Gra dhe Vajza vijon realizimin e workshope-ve me të rinjtë. U zhvillua sesioni i rradhë me nxënës të Shkollës së Mesme Profesionale TIK, “Hermann Gmeiner”, gjatë workshop-it  të rinjtë janë ndërgjegjësuar lidhur me rolet gjinore dhe stereotipet me bazë gjinore.",
       name: "Linja e Keshillimit per Gra dhe Vajza",
