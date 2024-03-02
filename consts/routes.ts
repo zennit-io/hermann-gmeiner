@@ -34,7 +34,7 @@ const ROUTES: Route[] = [
       {
         name: "Partnerët",
         Icon: IconHeartHandshake,
-        href: "/partnerët",
+        href: "/partneret",
         description: "Partnerët e që e bejnë këtë shkollë të suksesshme",
       },
       {
@@ -52,13 +52,13 @@ const ROUTES: Route[] = [
       {
         name: "Të rejat",
         Icon: IconNews,
-        href: "/njoftime/të-reja",
+        href: "/njoftime/te-reja",
         description: "Njoftimet e fundit nga shkolla jonë",
       },
       {
         name: "Vëndet e Lira",
         Icon: IconPinned,
-        href: "/njoftime/vënde-të-lira",
+        href: "/njoftime/vende-te-lira",
         description: "Vëndet e lira te stafit pedagogjik në shkollë",
       },
     ],

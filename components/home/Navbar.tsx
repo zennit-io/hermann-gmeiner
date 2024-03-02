@@ -1,6 +1,7 @@
 "use client";
 import { Fragment } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 //
 import NavigationMenu, {
   NavigationMenuContent,
@@ -10,17 +11,29 @@ import NavigationMenu, {
   NavigationMenuTrigger,
   NavigationMenuListItem,
 } from "@/components/general/NavigationMenu";
+import Switch from "@/components/general/Switch";
+import Button from "@/components/general/Button";
+//
+import { IconSun, IconMoonStars } from "@tabler/icons-react";
 //
 import ROUTES from "@/consts/routes";
-import Button from "@/components/general/Button";
 
 export function Navbar() {
+  const themeProvider = useTheme();
   return (
     <div
       className={
         "absolute left-1/2 top-3 z-50 flex w-full -translate-x-1/2 items-center px-2"
       }
     >
+      <Switch
+        OnIcon={IconSun}
+        OffIcon={IconMoonStars}
+        checked={themeProvider.theme === "dark"}
+        onCheckedChange={(checked) => {
+          themeProvider.setTheme(checked ? "dark" : "light");
+        }}
+      />
       <NavigationMenu className={"mx-auto"}>
         <NavigationMenuList>
           {ROUTES.map(({ name, subRoutes, href, Icon }) => (
@@ -48,15 +61,13 @@ export function Navbar() {
                   </NavigationMenuContent>
                 </Fragment>
               ) : (
-                <NavigationMenuItem>
-                  <Link href={href!} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      startDecorator={Icon && <Icon size={20} />}
-                    >
-                      {name}
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
+                <Link href={href!} legacyBehavior passHref>
+                  <NavigationMenuLink
+                    startDecorator={Icon && <Icon size={20} />}
+                  >
+                    {name}
+                  </NavigationMenuLink>
+                </Link>
               )}
             </NavigationMenuItem>
           ))}

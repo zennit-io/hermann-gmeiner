@@ -19,7 +19,7 @@ const buttonStyles = cva(
         secondary:
           "dark:bg-metallic-light bg-metallic-dark border border-foreground bg-center transition-all duration-500 ease-in-out hover:bg-[length:200%_200%]",
         border:
-          "relative overflow-hidden !rounded-full p-0.5 transition-shadow duration-500 ease-in-out  hover:shadow-top focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 ",
+          "relative overflow-hidden !rounded-full p-0.5 transition-shadow duration-500 ease-in-out hover:shadow-top focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
         default:
           "overflow-hidden border-primary-background bg-primary-background p-0 text-primary-foreground shadow-md ring-1 ring-primary/10 transition-colors duration-500 hover:bg-primary",
       },

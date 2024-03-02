@@ -92,7 +92,7 @@ const MovingCards = ({
       >
         {items.map(({ name, quote, title, image }) => (
           <li
-            className="group relative max-w-full shrink-0 transition-transform duration-500 hover:z-[1000] hover:scale-[110%]"
+            className="group relative max-w-full shrink-0 overflow-hidden rounded-md transition-all duration-500 hover:z-[1000] hover:scale-[110%] hover:shadow-top"
             style={{
               width: `calc((100% / ${items.length}) - 1rem)`,
             }}
@@ -101,7 +101,7 @@ const MovingCards = ({
             {image ? (
               <div
                 className={
-                  "relative size-full overflow-hidden rounded-md transition-transform "
+                  "relative size-full overflow-hidden transition-transform "
                 }
               >
                 <Image

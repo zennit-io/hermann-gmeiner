@@ -1,8 +1,11 @@
 import dynamic from "next/dynamic";
-import ZennitBadge from "@/icons/ZennitBadge";
-import StyledBackground from "@/components/banner/StyledBackground";
-import MovingCards from "@/components/general/MovingCards";
+//
 import Navbar from "@/components/home/Navbar";
+import MovingCards from "@/components/general/MovingCards";
+import StyledBackground from "@/components/banner/StyledBackground";
+import SpotlightFX from "@/components/fx/SpotlightFX";
+//
+import ZennitBadge from "@/icons/ZennitBadge";
 
 const MacbookScroll = dynamic(
   () => import("@/components/banner/MacbookScroll"),
@@ -17,6 +20,7 @@ const HermannPage = () => {
         className={"absolute left-0 top-0 flex size-full flex-col"}
         variant={"grid"}
       />
+      <SpotlightFX className={"-top-40 left-0 md:-top-20 md:left-60"} />
       <MacbookScroll
         title={
           <div className={"relative w-full"}>
