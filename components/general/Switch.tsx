@@ -23,7 +23,7 @@ const Switch = forwardRef<
   <SwitchPrimitives.Root
     checked={checked}
     className={cn(
-      "data-[state=checked]:bg-metallic-light data-[state=unchecked]:bg-metallic-dark peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border shadow-sm transition-all duration-500 data-[state=checked]:border-background/20 data-[state=unchecked]:border-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
+      "data-[state=checked]:bg-metallic-light data-[state=unchecked]:bg-metallic-dark peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border shadow-sm transition-transform duration-500 data-[state=checked]:border-background/20 data-[state=unchecked]:border-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
       className
     )}
     {...props}

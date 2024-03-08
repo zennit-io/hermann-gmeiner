@@ -4,6 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import cn from "@/lib/cn";
 
 import { IconCircleArrowUpRight } from "@tabler/icons-react";
+import Link from "next/link";
 
 type MovingCardProps = {
   image?: string | StaticImageData;
@@ -125,12 +126,14 @@ const MovingCards = ({
                     }
                   >
                     <span className={"max-w-[80%] truncate"}>{title}</span>
-                    <IconCircleArrowUpRight
-                      size={16}
-                      className={
-                        "stroke-white transition-all duration-300 hover:rotate-45 hover:stroke-primary-foreground"
-                      }
-                    />
+                    <Link href={"/projektet/1"}>
+                      <IconCircleArrowUpRight
+                        size={16}
+                        className={
+                          "stroke-white transition-all duration-300 hover:rotate-45 hover:stroke-primary-foreground"
+                        }
+                      />
+                    </Link>
                   </h3>
 
                   <h5

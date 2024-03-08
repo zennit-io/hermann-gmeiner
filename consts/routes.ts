@@ -4,11 +4,14 @@ import {
   Icon3dCubeSphere,
   IconBellBolt,
   IconBook,
+  IconBrandThreejs,
   IconHeartHandshake,
   IconHome,
+  IconLuggage,
   IconNews,
   IconNotebook,
   IconPinned,
+  IconTrophy,
   TablerIconsProps,
 } from "@tabler/icons-react";
 
@@ -26,9 +29,15 @@ const ROUTES: Route[] = [
     Icon: IconHome,
     subRoutes: [
       {
+        name: "Kreu",
+        Icon: IconHome,
+        href: "/",
+        description: "Kreu i shkollës sonë",
+      },
+      {
         name: "Historia e Shkollës",
         Icon: IconNotebook,
-        href: "/historia-e-shkollës",
+        href: "/historia-e-shkolles",
         description: "Historia e shkollës sonë",
       },
       {
@@ -60,6 +69,24 @@ const ROUTES: Route[] = [
         Icon: IconPinned,
         href: "/njoftime/vende-te-lira",
         description: "Vëndet e lira te stafit pedagogjik në shkollë",
+      },
+    ],
+  },
+  {
+    name: "Histori Suksesi",
+    Icon: IconTrophy,
+    subRoutes: [
+      {
+        name: "Intershipe / Praktika",
+        Icon: IconBrandThreejs,
+        href: "/histori-suksesi/intershipe-praktika",
+        description: "Histori suksesi dhe praktika nga nxënësit tanë",
+      },
+      {
+        name: "Punësime",
+        Icon: IconLuggage,
+        href: "/histori-suksesi/punesime",
+        description: "Punësimet e nxënësve tanë",
       },
     ],
   },

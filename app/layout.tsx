@@ -6,6 +6,8 @@ import ThemeProvider from "@/components/layout/ThemeProvider";
 //
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
+import Navbar from "@/components/home/Navbar";
+import cn from "@/lib/cn";
 
 export const metadata: Metadata = {
   title: "Shkolla 'Hermann Gmeiner'",
@@ -18,9 +20,15 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={GeistSans.className}>
+    <html lang="en" className={"h-screen w-screen"}>
+      <body
+        className={cn(
+          "relative h-full w-full bg-background text-foreground",
+          GeistSans.className
+        )}
+      >
         <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>

@@ -1,24 +1,21 @@
 import dynamic from "next/dynamic";
 //
-import Navbar from "@/components/home/Navbar";
 import MovingCards from "@/components/general/MovingCards";
 import StyledBackground from "@/components/banner/StyledBackground";
 import SpotlightFX from "@/components/fx/SpotlightFX";
 //
 import ZennitBadge from "@/icons/ZennitBadge";
-
+//
 const MacbookScroll = dynamic(
-  () => import("@/components/banner/MacbookScroll"),
-  { ssr: false }
+  () => import("../components/banner/MacbookScroll")
 );
 
-const HermannPage = () => {
+const LandingPage = () => {
   return (
     <main className={"relative h-[150dvh] sm:h-[200dvh]"}>
-      <Navbar />
       <StyledBackground
         className={"absolute left-0 top-0 flex size-full flex-col"}
-        variant={"grid"}
+        variant={"dots"}
       />
       <SpotlightFX className={"-top-40 left-0 md:-top-20 md:left-60"} />
       <MacbookScroll
@@ -286,4 +283,4 @@ const projects = [
     },
   ],
 ];
-export default HermannPage;
+export default LandingPage;

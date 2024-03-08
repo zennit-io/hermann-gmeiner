@@ -6,8 +6,8 @@ const backgroundStyles = cva(
   {
     variants: {
       variant: {
-        "grid": "bg-grid-black/[0.2] dark:bg-black dark:bg-grid-white/[0.2]",
-        "dots": "dark:bg-dots-white/[0.2] bg-dot-black/[0.2]",
+        "grid": "bg-grid-black/[0.2] dark:bg-grid-white/[0.2]",
+        "dots": "bg-dot-black/[0.2] dark:bg-dot-white/[0.2]",
         "grid-small":
           "bg-grid-small-black/[0.2] dark:bg-grid-small-white/[0.2]",
       },

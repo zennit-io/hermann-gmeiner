@@ -1,5 +1,4 @@
 /** @type {import("tailwindcss").Config} */
-import plugin from "tailwindcss/plugin";
 //
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 //
@@ -30,8 +29,12 @@ module.exports = {
       sans: ["var(--font-geist-sans)"],
     },
     extend: {
+      backgroundClip: {
+        text: "text",
+      },
       boxShadow: {
         top: "0 0 10px 0 hsl(var(--primary-foreground))",
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08), inset 0px 1px 2px 0px hsl(var(--foreground) / 40)`,
       },
       colors: {
         border: "hsl(var(--border))",
@@ -112,19 +115,8 @@ module.exports = {
           },
         },
       },
-      gridTemplateColumns: {
-        "24": "repeat(24, minmax(0, 1fr))",
-      },
       fontSize: {
         "2xs": "0.6rem",
-      },
-      gridColumn: {
-        "span-13": "span 13 / span 13",
-        "span-14": "span 14 / span 14",
-        "span-15": "span 15 / span 15",
-        "span-16": "span 16 / span 16",
-        "span-17": "span 17 / span 17",
-        "span-18": "span 18 / span 18",
       },
       display: ["last"],
     },
@@ -135,21 +127,22 @@ module.exports = {
   plugins: [
     require("tailwindcss-animate"),
     require("tailwind-scrollbar"),
+    require("@tailwindcss/typography"),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {
-          "bg-grid": (value: any) => ({
+          "bg-grid": (value: "black" | "white") => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
-          "bg-grid-small": (value: any) => ({
+          "bg-grid-small": (value: "black" | "white") => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
-          "bg-dot": (value: any) => ({
+          "bg-dot": (value: "black" | "white") => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
             )}")`,
