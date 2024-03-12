@@ -24,7 +24,7 @@ const buttonStyles = cva(
           "overflow-hidden border-primary-background bg-primary-background p-0 text-primary-foreground shadow-md ring-1 ring-primary/10 transition-colors duration-500 hover:bg-primary",
         icon: "size-8 max-h-8 max-w-8 !rounded-full rounded-full bg-foreground/10 p-0 transition-colors hover:bg-foreground/60 ",
         default:
-          "border border-primary/40 bg-gradient-to-t from-primary-foreground via-primary to-primary-foreground shadow-inner",
+          "border border-primary/40 bg-gradient-to-t from-primary-foreground via-primary to-primary-foreground shadow-inner transition-shadow duration-300 hover:shadow-white",
       },
     },
     defaultVariants: {
@@ -44,7 +44,7 @@ const contentStyles = cva("h-full px-6 py-3 text-background", {
       tertiary:
         "flex size-full items-center text-white shadow-inner shadow-white/40 backdrop-blur-xl",
       default:
-        "size-full shadow-inner shadow-white/40 backdrop-blur-md text-white",
+        "size-full text-white shadow-inner shadow-white/40 backdrop-blur-md",
       icon: "flex w-full items-center justify-center !p-0 [&>svg]:size-5 [&>svg]:stroke-foreground",
     },
   },

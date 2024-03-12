@@ -22,23 +22,34 @@
 
 @layer base {
     :root {
+        --hsl: #a2a2a2;
+
+
         --background: 0 0% 100%;
         --foreground: 224 71.4% 4.1%;
+        /* card */
         --card: 0 0% 100%;
         --card-foreground: 224 71.4% 4.1%;
-        --popover: 0 0% 100%;
+        /* popovers */
+        --popover: 0 0% 90%;
         --popover-foreground: 224 71.4% 4.1%;
+        /* shades of primary */
+        --primary-foreground: 295 72% 40%;
         --primary: 283 82% 24%;
         --primary-background: 245 58% 51%;
-        --primary-foreground: 295 72% 40%;
+        /* shades of secondary */
         --secondary: 220 14.3% 95.9%;
         --secondary-foreground: 220.9 39.3% 11%;
+        /* muted (foreground-utils) */
         --muted: 220 14.3% 95.9%;
         --muted-foreground: 220 8.9% 46.1%;
+        /* accent (background-utils)*/
         --accent: 220 14.3% 95.9%;
         --accent-foreground: 220.9 39.3% 11%;
+        /* destructive */
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 210 20% 98%;
+        /* other utils */
         --border: 220 13% 91%;
         --input: 220 13% 91%;
         --ring: 262.1 83.3% 57.8%;
