@@ -22,8 +22,6 @@
 
 @layer base {
     :root {
-        --hsl: #a2a2a2;
-
 
         --background: 0 0% 100%;
         --foreground: 224 71.4% 4.1%;
@@ -57,7 +55,7 @@
     }
 
     .dark {
-        --background: 224 71.4% 4.1%;
+        --background: 0 0 0%;
         --foreground: 210 20% 98%;
         --card: 224 71.4% 4.1%;
         --card-foreground: 210 20% 98%;

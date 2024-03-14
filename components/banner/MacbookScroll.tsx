@@ -1,33 +1,33 @@
 "use client";
-import React, { useEffect, useRef, useState, type ReactNode } from "react";
+import React, { type ReactNode, useEffect, useRef, useState } from "react";
 import { screens } from "@/tailwind-globals";
 import {
   motion,
+  type MotionValue,
   useScroll,
   useTransform,
-  type MotionValue,
 } from "framer-motion";
 import cn from "@/lib/cn";
 import {
   IconBrightnessDown,
   IconBrightnessUp,
+  IconCaretDownFilled,
+  IconCaretLeftFilled,
   IconCaretRightFilled,
   IconCaretUpFilled,
   IconChevronUp,
+  IconCommand,
   IconMicrophone,
   IconMoon,
   IconPlayerSkipForward,
   IconPlayerTrackNext,
   IconPlayerTrackPrev,
+  IconSearch,
   IconTable,
   IconVolume,
   IconVolume2,
   IconVolume3,
-  IconSearch,
   IconWorld,
-  IconCommand,
-  IconCaretLeftFilled,
-  IconCaretDownFilled,
 } from "@tabler/icons-react";
 import ZennitLogo from "@/icons/ZennitLogo";
 
@@ -55,9 +55,10 @@ const MacbookScroll = ({
     offset: ["start start", "end start"],
   });
   const [scaleFactor, setScaleFactor] = useState(0.35);
-
+  const [globalWindow, setGlobalWindow] = useState<Window | null>(null);
   useEffect(() => {
     if (!window) return;
+    setGlobalWindow(window);
     const width = window.innerWidth;
     switch (true) {
       case width > parsePixelAmounts(screens.lg):
@@ -81,8 +82,10 @@ const MacbookScroll = ({
   const MACBOOK_WIDTH = 512;
   const MACBOOK_HEIGHT = 384;
   //
-  const scaleXFactor = window.innerWidth / (scaleFactor * MACBOOK_WIDTH);
-  const scaleYFactor = window.innerHeight / (scaleFactor * MACBOOK_HEIGHT);
+  const scaleXFactor =
+    globalWindow?.innerWidth ?? 1920 / (scaleFactor * MACBOOK_WIDTH);
+  const scaleYFactor =
+    globalWindow?.innerHeight ?? 1920 / (scaleFactor * MACBOOK_HEIGHT);
   //
   const scaleX = useTransform(scrollYProgress, [0, 0.3], [1.2, scaleXFactor]);
   const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, scaleYFactor]);

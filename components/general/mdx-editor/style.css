@@ -1,0 +1,18 @@
+.mdxeditor-popup-container form > div {
+    @apply relative;
+}
+.mdxeditor-popup-container input[type="file"] {
+    @apply w-full h-full absolute top-0 left-0 opacity-0;
+}
+
+.mdxeditor-popup-container label[for="file"] {
+    @apply border border-dashed flex-col border-border rounded-md w-full items-center justify-center flex py-8 text-sm  cursor-pointer font-sans before:w-3/5  before:stroke-border/40 before:opacity-40 before:content-[url("/icons/upload.svg")];
+}
+
+.mdxeditor-popup-container {
+
+}
+
+.mdxeditor-popup-container {
+
+}

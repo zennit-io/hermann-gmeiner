@@ -1,10 +1,6 @@
 import { useMemo } from "react";
 import DebouncedInput from "./DebouncedInput";
 import type { Column, Table } from "@tanstack/table-core";
-import {
-  DropdownMenu,
-  DropdownMenuItem,
-} from "@/components/general/DropdownMenu";
 
 const Filter = ({
   column,

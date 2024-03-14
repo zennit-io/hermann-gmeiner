@@ -4,18 +4,18 @@ import dynamic from "next/dynamic";
 //
 
 const MDXEditor = dynamic(
-  () => import("../../../components/general/MDXEditor"),
+  () => import("../../../components/general/mdx-editor/MDXEditor"),
   {
     ssr: false,
   }
 );
 const ManagementPage = () => {
   return (
-    <div>
+    <main>
       <Suspense fallback={null}>
-        <MDXEditor markdown={`##Hello`} />
+        <MDXEditor markdown={``} />
       </Suspense>
-    </div>
+    </main>
   );
 };
 

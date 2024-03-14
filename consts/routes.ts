@@ -15,13 +15,13 @@ import {
   TablerIconsProps,
 } from "@tabler/icons-react";
 
-type Route = {
+type Route = Readonly<{
   name: string;
   Icon: ComponentType<TablerIconsProps> | null;
   subRoutes?: Route[];
   href?: string;
   description?: string;
-};
+}>;
 
 const ROUTES: Route[] = [
   {
