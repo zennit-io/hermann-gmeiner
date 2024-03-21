@@ -1,18 +1,59 @@
+
 .mdxeditor-popup-container form > div {
     @apply relative;
 }
+
+.mdxeditor-popup-container {
+    @apply !font-[inherit]
+}
+
+.mdxeditor-popup-container > div[data-aria-hidden="true"] {
+    @apply bg-foreground/40
+}
+
+.mdxeditor-popup-container > div[role="dialog"] {
+    @apply !font-[inherit] rounded-xl bg-metallic-light
+}
+
+.mdxeditor-popup-container * {
+    @apply !font-[inherit]
+}
+
+.mdxeditor-popup-container button {
+    @apply rounded-xl px-6 py-3 flex items-center justify-center hover:cursor-pointer text-sm origin-center active:scale-95 transition-all;
+
+}
+
+.mdxeditor-popup-container button[type="submit"] {
+    @apply order-last bg-primary-foreground border-primary text-background shadow-white/60 hover:bg-primary-background transition-colors duration-500 shadow-inner backdrop-blur-xl
+}
+
+.mdxeditor-popup-container button[type="reset"] {
+    @apply bg-foreground mr-auto border-black text-background shadow-white/60 hover:shadow-white transition-all duration-500 shadow-inner backdrop-blur-md hover:backdrop-blur-xl;
+
+
+}
+
+.mdxeditor-popup-container input {
+    @apply rounded-lg border border-secondary bg-white shadow-sm
+}
 .mdxeditor-popup-container input[type="file"] {
     @apply w-full h-full absolute top-0 left-0 opacity-0;
+
+    &:valid {
+        @apply border border-primary;
+    }
+}
+
+.mdxeditor-popup-container label {
+    @apply text-sm font-medium;
 }
 
 .mdxeditor-popup-container label[for="file"] {
-    @apply border border-dashed flex-col border-border rounded-md w-full items-center justify-center flex py-8 text-sm  cursor-pointer font-sans before:w-3/5  before:stroke-border/40 before:opacity-40 before:content-[url("/icons/upload.svg")];
-}
+    @apply bg-background border-2  border-dashed flex-col border-border rounded-md w-full items-center justify-center flex py-8 text-sm  cursor-pointer font-sans before:w-3/5  before:stroke-border/40 before:opacity-40 before:content-[url("/icons/upload.svg")];
 
-.mdxeditor-popup-container {
-
-}
-
-.mdxeditor-popup-container {
+    &:has(~input[type="file"]:active) {
+        @apply border border-primary;
+    }
 
 }

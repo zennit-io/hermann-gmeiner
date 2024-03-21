@@ -1,4 +1,4 @@
-import getPostData from "@/utils/actions/post/get-post-data";
+import getPostData from "@/db/utils/actions/post/get-post-data";
 //
 import type { DynamicRoute } from "@/types/navigation/DynamicRoute";
 import PostView from "@/components/general/PostView";

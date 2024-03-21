@@ -19,22 +19,9 @@ type SwitchProps = ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> & {
 const Switch = forwardRef<
   ElementRef<typeof SwitchPrimitives.Root>,
   SwitchProps
->(
-  (
-    {
-      className,
-      thumbClassName,
-      OnIcon,
-      OffIcon,
-      checked,
-      defaultChecked,
-      ...props
-    },
-    ref
-  ) => (
+>(({ className, thumbClassName, OnIcon, OffIcon, ...props }, ref) => {
+  return (
     <SwitchPrimitives.Root
-      checked={checked}
-      defaultChecked={defaultChecked}
       className={cn(
         "data-[state=checked]:bg-metallic-light data-[state=unchecked]:bg-metallic-dark peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border shadow-sm transition-transform duration-500 data-[state=checked]:border-background/20 data-[state=unchecked]:border-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
         className
@@ -43,10 +30,8 @@ const Switch = forwardRef<
       ref={ref}
     >
       <SwitchPrimitives.Thumb
-        defaultChecked={defaultChecked}
         className={cn(
           "data-[state=checked]:bg-metallic-dark data-[state=unchecked]:bg-metallic-light group pointer-events-none relative block size-4 rounded-full border shadow-inner  shadow-white/20 ring-0 transition-all duration-500 data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0.5 data-[state=checked]:border-foreground/20 data-[state=unchecked]:border-background/20",
-
           thumbClassName
         )}
       >
@@ -68,8 +53,8 @@ const Switch = forwardRef<
         )}
       </SwitchPrimitives.Thumb>
     </SwitchPrimitives.Root>
-  )
-);
+  );
+});
 Switch.displayName = SwitchPrimitives.Root.displayName;
 
 export default Switch;

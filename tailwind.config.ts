@@ -33,8 +33,10 @@ module.exports = {
         text: "text",
       },
       boxShadow: {
-        top: "0 0 10px 0 hsl(var(--primary-foreground))",
-        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08), inset 0px 1px 2px 0px hsl(var(--foreground) / 40)`,
+        "top": "0 0 10px 0 hsl(var(--primary-foreground))",
+        "neumorphic": "var(--neumorphic-outline-button)",
+        "neumorphic-active": "var(--neumorphic-outline-active-button)",
+        "input": `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08), inset 0px 1px 2px 0px hsl(var(--foreground) / 40)`,
       },
       colors: {
         border: "hsl(var(--border))",

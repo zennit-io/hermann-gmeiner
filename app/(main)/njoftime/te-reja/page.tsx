@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { GLTFLoader } from "three-stdlib";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import SpotlightFX from "@/components/fx/SpotlightFX";
+import ArticlePreview from "@/components/home/ArticlePreview";
 
 const TitleModel = () => {
   const { scene } = useLoader(GLTFLoader, "/assets/title.glb");
@@ -12,6 +13,13 @@ const TitleModel = () => {
 const Page = () => {
   return (
     <main className={"flex flex-col"}>
+      <section
+        className={"flex flex-wrap gap-2 *:w-[calc((100%/4)-theme(spacing.2))]"}
+      >
+        {DATA.map((data, i) => (
+          <ArticlePreview {...data} key={i} />
+        ))}
+      </section>
       <section
         className={
           "m-auto flex aspect-video w-[calc(4/5*100dvw)] items-center justify-center overflow-hidden"
@@ -22,14 +30,6 @@ const Page = () => {
           <Canvas>
             <Suspense fallback={null}>
               <TitleModel />
-              {/*<SpotLight*/}
-              {/*  color="#00d9ff"*/}
-              {/*  position={[-2, 1.5, 0]}*/}
-              {/*  intensity={10}*/}
-              {/*  angle={Math.PI / 10}*/}
-              {/*  penumbra={0}*/}
-              {/*  castShadow*/}
-              {/*/>*/}
               <directionalLight position={[0, 0, 1]} intensity={5} />
               <OrbitControls />
               <PerspectiveCamera
@@ -46,6 +46,13 @@ const Page = () => {
     </main>
   );
 };
+const DATA = Array.from({ length: 100 }, (_, i) => ({
+  title: "Test Article",
+  tagList: ["Test"],
+  length: "5 min read",
+  description:
+    "some long description about some thing here were testing so it doesent matter some long description about some thing here were testing so it doesent matter some long description about some thing here were testing so it doesent matter some long description about some thing here were testing so it doesent matter",
+}));
 
 export default Page;
 

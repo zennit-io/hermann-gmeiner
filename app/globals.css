@@ -52,6 +52,9 @@
         --input: 220 13% 91%;
         --ring: 262.1 83.3% 57.8%;
         --radius: 0.5rem;
+        /* button */
+        --neumorphic-outline-button: 0rem -.0625rem 0rem 0rem #8400ff inset, 0rem 0rem 0rem .0625rem #ffffff1a inset, 0rem .03125rem 0rem .09375rem #030711 inset;
+        --neumorphic-outline-active-button: -.0625rem 0rem .0625rem 0rem #7500ff inset, .0625rem 0rem .0625rem 0rem #94429a inset, 0rem .125rem .0625rem 0rem #c228ff inset;
     }
 
     .dark {

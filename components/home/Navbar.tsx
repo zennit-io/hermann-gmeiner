@@ -8,18 +8,20 @@ import NavigationMenu, {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   NavigationMenuListItem,
+  NavigationMenuTrigger,
 } from "@/components/general/NavigationMenu";
 import Switch from "@/components/general/Switch";
 import Button from "@/components/general/Button";
 //
-import { IconSun, IconMoonStars } from "@tabler/icons-react";
+import { IconMoonStars, IconSun } from "@tabler/icons-react";
 //
 import ROUTES from "@/consts/routes";
 
 export function Navbar() {
   const themeProvider = useTheme();
+  const isChecked = themeProvider.theme === "dark";
+  console.log("parent-check", isChecked);
   return (
     <div
       className={
@@ -29,7 +31,7 @@ export function Navbar() {
       <Switch
         OnIcon={IconSun}
         OffIcon={IconMoonStars}
-        checked={themeProvider.theme === "dark"}
+        checked={isChecked}
         onCheckedChange={(checked) => {
           themeProvider.setTheme(checked ? "dark" : "light");
         }}

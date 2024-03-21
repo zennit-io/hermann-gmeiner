@@ -65,6 +65,7 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { ComponentType } from "react";
+import { postImageFs } from "@/db/actions/image/post-image-fs";
 
 const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
   return (
@@ -74,6 +75,7 @@ const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
         const Icon = ICONS[name];
         return <Icon />;
       }}
+      className="dark:dark-theme dark:dark-editor"
       contentEditableClassName={"prose"}
       plugins={[
         toolbarPlugin({
@@ -99,7 +101,13 @@ const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
         quotePlugin(),
         thematicBreakPlugin(),
         markdownShortcutPlugin(),
-        imagePlugin(),
+        imagePlugin({
+          imageUploadHandler: async (file) => {
+            const formData = new FormData();
+            formData.append("image", file);
+            return await postImageFs(formData);
+          },
+        }),
       ]}
       {...props}
     />

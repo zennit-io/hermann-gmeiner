@@ -55,10 +55,8 @@ const MacbookScroll = ({
     offset: ["start start", "end start"],
   });
   const [scaleFactor, setScaleFactor] = useState(0.35);
-  const [globalWindow, setGlobalWindow] = useState<Window | null>(null);
   useEffect(() => {
     if (!window) return;
-    setGlobalWindow(window);
     const width = window.innerWidth;
     switch (true) {
       case width > parsePixelAmounts(screens.lg):
@@ -82,10 +80,8 @@ const MacbookScroll = ({
   const MACBOOK_WIDTH = 512;
   const MACBOOK_HEIGHT = 384;
   //
-  const scaleXFactor =
-    globalWindow?.innerWidth ?? 1920 / (scaleFactor * MACBOOK_WIDTH);
-  const scaleYFactor =
-    globalWindow?.innerHeight ?? 1920 / (scaleFactor * MACBOOK_HEIGHT);
+  const scaleXFactor = window.innerWidth / (scaleFactor * MACBOOK_WIDTH);
+  const scaleYFactor = window.innerHeight / (scaleFactor * MACBOOK_HEIGHT);
   //
   const scaleX = useTransform(scrollYProgress, [0, 0.3], [1.2, scaleXFactor]);
   const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, scaleYFactor]);

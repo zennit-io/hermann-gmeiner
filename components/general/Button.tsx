@@ -1,4 +1,4 @@
-import { type HTMLAttributes, forwardRef } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cva, VariantProps } from "class-variance-authority";
@@ -10,7 +10,7 @@ type ButtonProps = {
 
 // eslint-disable-next-line tailwindcss/no-contradicting-classname
 const buttonStyles = cva(
-  "inline-flex h-12 items-center justify-center overflow-hidden whitespace-nowrap rounded-xl text-sm font-medium transition-colors",
+  "active:scale-95 transition-all inline-flex h-12 items-center justify-center overflow-hidden whitespace-nowrap rounded-xl text-sm font-medium transition-colors box-content",
   {
     variants: {
       variant: {
@@ -21,7 +21,7 @@ const buttonStyles = cva(
         border:
           "relative overflow-hidden !rounded-full p-0.5 transition-shadow duration-500 ease-in-out hover:shadow-top focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
         tertiary:
-          "overflow-hidden border-primary-background bg-primary-background p-0 text-primary-foreground shadow-md ring-1 ring-primary/10 transition-colors duration-500 hover:bg-primary",
+          "bg-background inline-flex items-center justify-center text-sm font-medium ring-0 transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 border border-input hover:text-accent-foreground rounded-md h-full p-0 border-none !shadow-neumorphic active:pt-[2px] active:!shadow-neumorphic-active",
         icon: "size-8 max-h-8 max-w-8 !rounded-full rounded-full bg-foreground/10 p-0 transition-colors hover:bg-foreground/60 ",
         default:
           "border border-primary/40 bg-gradient-to-t from-primary-foreground via-primary to-primary-foreground shadow-inner transition-shadow duration-300 hover:shadow-white",
@@ -41,8 +41,7 @@ const contentStyles = cva("h-full px-6 py-3 text-background", {
       secondary: "shadow-inner shadow-foreground",
       border:
         "inline-flex size-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white shadow-inner shadow-white/40 backdrop-blur-3xl",
-      tertiary:
-        "flex size-full items-center text-white shadow-inner shadow-white/40 backdrop-blur-xl",
+      tertiary: "text-foreground",
       default:
         "size-full text-white shadow-inner shadow-white/40 backdrop-blur-md",
       icon: "flex w-full items-center justify-center !p-0 [&>svg]:size-5 [&>svg]:stroke-foreground",
