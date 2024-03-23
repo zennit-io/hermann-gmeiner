@@ -75,7 +75,8 @@ const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
         const Icon = ICONS[name];
         return <Icon />;
       }}
-      className="dark:dark-theme dark:dark-editor"
+      // eslint-disable-next-line tailwindcss/no-custom-classname
+      className={"dark:dark-theme dark:dark-editor"}
       contentEditableClassName={"prose"}
       plugins={[
         toolbarPlugin({

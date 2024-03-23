@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  app:
+    image: hermann-gmeiner
+    build:
+      network: host
+      context: ./
+      target: dev
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://hermann-gmeiner:hermain-gmainer@db:5432/herman-gmeiner
+  db:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_DB: hermann-geminer
+      POSTGRES_USER: hermann-geminer
+      POSTGRES_PASSWORD: hermann-geminer
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:

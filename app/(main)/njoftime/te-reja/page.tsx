@@ -46,7 +46,7 @@ const Page = () => {
     </main>
   );
 };
-const DATA = Array.from({ length: 100 }, (_, i) => ({
+const DATA = Array.from({ length: 100 }, () => ({
   title: "Test Article",
   tagList: ["Test"],
   length: "5 min read",
