@@ -1,3 +1,4 @@
+"use client";
 import dynamic from "next/dynamic";
 //
 import MovingCards from "@/components/general/MovingCards";

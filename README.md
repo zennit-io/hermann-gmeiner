@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is the README file for the website of the "Hermann Gmeiner" Vocational School in Tirana, Albania
 
-## Getting Started
+## About the school
 
-First, run the development server:
+The "Hermann Gmeiner" Vocational School in Tirana, Albania is a vocational school that offers a variety of courses in
+different fields. The school is named after Hermann Gmeiner, the founder of the SOS Children's Villages organization.
+The school aims to provide high-quality education and training to young people in Albania, helping them to develop the
+skills and knowledge they need to succeed in their chosen careers.
+
+## Our mission
+
+Our mission is to provide young people in Albania with the opportunity to gain the skills and knowledge they need to
+succeed in their chosen careers. We aim to offer high-quality education and training that is relevant to the needs of
+the job market, helping our students to develop the skills and competencies they need to secure employment and build
+successful careers.
+
+## About the Project:
+
+- Start it within Docker compose config with:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker-compose up --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- And the website will be available at:
+```bash
+http://localhost:3000/
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- This will start the next.js project and the postgres database.
+- If you want to fork the project and run it locally, you need to have installed Docker.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+- To migrate the database, you need to run the following command:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+docker exec -it <container-id> npx drizzle-kit push:pg
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- To get the container id, you can run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+docker ps
+```
 
-## Deploy on Vercel
+- And you will see the container id of the db container.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies used:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js
+- Postgres
+- Docker
+- Drizzle-kit
+- Tailwind CSS
+- React
+- Node.js
+
+## Build with:
+
+- zenn-ui
+
+## Creators:
+
+- zennit
+

@@ -65,7 +65,7 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { ComponentType } from "react";
-import { postImageFs } from "@/db/actions/image/post-image-fs";
+import { postImage } from "@/db/actions/image/post-image";
 
 const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
   return (
@@ -106,7 +106,7 @@ const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
           imageUploadHandler: async (file) => {
             const formData = new FormData();
             formData.append("image", file);
-            return await postImageFs(formData);
+            return await postImage(formData);
           },
         }),
       ]}

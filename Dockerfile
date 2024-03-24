@@ -33,3 +33,11 @@ ENV NODE_ENV=development
 RUN npm install
 COPY . .
 CMD npm run dev
+
+#FROM nginx:alpine
+#
+#WORKDIR /app
+#
+#COPY . .
+#
+#COPY ./nginx.conf /etc/nginx/nginx.conf

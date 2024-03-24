@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   app:
+    container_name: website
     image: hermann-gmeiner
     build:
       network: host
@@ -11,19 +12,36 @@ services:
       - .:/app
       - /app/node_modules
       - /app/.next
+      - images:/app/public/articles/images:ro  # add this line
     ports:
       - "3000:3000"
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://hermann-gmeiner:hermain-gmainer@db:5432/herman-gmeiner
+      DATABASE_URL: postgres://admin:adminadmin@db:5432/db
+
   db:
     image: postgres:13-alpine
+    container_name: db
+    ports:
+      - "5433:5432"
     environment:
-      POSTGRES_DB: hermann-geminer
-      POSTGRES_USER: hermann-geminer
-      POSTGRES_PASSWORD: hermann-geminer
+      POSTGRES_DB: db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminadmin
     volumes:
       - db-data:/var/lib/postgresql/data
+
+  static:
+    container_name: static
+    image: nginx:alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./static:/usr/share/nginx/html
+    ports:
+      - "8080:8080"
 volumes:
   db-data:
+  images:
+
+
