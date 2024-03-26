@@ -21,7 +21,6 @@ import ROUTES from "@/consts/routes";
 export function Navbar() {
   const themeProvider = useTheme();
   const isChecked = themeProvider.theme === "dark";
-  console.log("parent-check", isChecked);
   return (
     <div
       className={

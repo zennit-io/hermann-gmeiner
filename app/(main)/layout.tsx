@@ -5,7 +5,7 @@ const MainLayout = ({
 }: Readonly<{
   children: ReactNode;
 }>) => {
-  return <div className={"pt-20"}>{children}</div>;
+  return <div className={"size-full pt-20"}>{children}</div>;
 };
 
 export default MainLayout;

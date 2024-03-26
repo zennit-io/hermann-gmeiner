@@ -5,7 +5,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import fuzzySort from "@/components/general/table/_utils/fuzzy-sort";
 import TableProvider from "@/components/general/table/TableProvider";
 import Button from "@/components/general/Button";
-import Input from "@/components/general/Input";
+import { Input } from "@/components/general/Input";
 import Calendar from "@/components/general/Calendar";
 import { IconInfoCircle } from "@tabler/icons-react";
 

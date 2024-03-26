@@ -11,7 +11,7 @@ const MDXEditor = dynamic(
 );
 const ManagementPage = () => {
   return (
-    <main>
+    <main className={"size-full"}>
       <Suspense fallback={null}>
         <MDXEditor markdown={``} />
       </Suspense>

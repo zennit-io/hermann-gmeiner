@@ -25,7 +25,7 @@ export type Post = {
 //
 const POSTS_DIRECTORY = path.join(process.cwd(), "public", "posts");
 
-const readPostMarkdown = async (id: number | string): Promise<Post> => {
+const readArticleMarkdown = async (id: number | string): Promise<Post> => {
   const fullPath = path.join(POSTS_DIRECTORY, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
@@ -45,4 +45,4 @@ const readPostMarkdown = async (id: number | string): Promise<Post> => {
   };
 };
 
-export default readPostMarkdown;
+export default readArticleMarkdown;

@@ -15,6 +15,7 @@ services:
       - images:/app/public/articles/images:ro  # add this line
     ports:
       - "3000:3000"
+      - "4983:4983"
     depends_on:
       - db
     environment:

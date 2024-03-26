@@ -1,9 +1,9 @@
 //
-import getPostData from "@/db/utils/actions/post/get-post-data";
+import readArticle from "@/db/actions/article/read-article";
 import PostView from "@/components/general/PostView";
 
 const SchoolHistoryPage = async () => {
-  const postData = await getPostData("historia-e-shkolles");
+  const postData = await readArticle("historia-e-shkolles");
   return <PostView postData={postData} />;
 };
 

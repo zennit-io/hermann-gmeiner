@@ -8,6 +8,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Navbar from "@/components/home/Navbar";
 import cn from "@/lib/cn";
+import { Toaster } from "@/components/general/Sonner";
 
 export const metadata: Metadata = {
   title: "Shkolla 'Hermann Gmeiner'",
@@ -30,6 +31,7 @@ export default function RootLayout({
         <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>
           <Navbar />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

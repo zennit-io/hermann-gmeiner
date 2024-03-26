@@ -12,7 +12,7 @@ import {
   IconShare,
 } from "@tabler/icons-react";
 //
-import type { Post } from "@/db/utils/helpers/read-post-markdown";
+import type { Post } from "@/db/utils/read-article-markdown";
 
 type PostViewProps = {
   postData: Post;

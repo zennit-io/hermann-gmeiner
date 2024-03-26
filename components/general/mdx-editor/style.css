@@ -7,12 +7,33 @@
     @apply !font-[inherit]
 }
 
+.mdxeditor-select-content {
+    @apply rounded-b-lg bg-popover p-1
+}
+
+.mdxeditor-select-content div[role="option"] {
+    @apply rounded-lg hover:shadow-inner hover:shadow-white hover:backdrop-blur-sm focus:bg-accent focus:text-accent-foreground dark:hover:shadow-white/40;
+
+    &[data-state="checked"] {
+        @apply bg-accent text-accent-foreground dark:bg-accent dark:text-accent-foreground shadow-white backdrop-blur-sm shadow-inner dark:shadow-white/40;
+    }
+}
+
+.mdxeditor button[role="combobox"] {
+    @apply shadow-md rounded-md;
+
+    &[data-state="open"] {
+        @apply rounded-b-none
+    }
+}
+
+
 .mdxeditor-popup-container > div[data-aria-hidden="true"] {
     @apply bg-foreground/40
 }
 
 .mdxeditor-popup-container > div[role="dialog"] {
-    @apply !font-[inherit] rounded-xl bg-metallic-light
+    @apply !font-[inherit] rounded-xl bg-popover border-background
 }
 
 .mdxeditor-popup-container * {
@@ -35,7 +56,7 @@
 }
 
 .mdxeditor-popup-container input {
-    @apply rounded-lg border border-secondary bg-white shadow-sm
+    @apply rounded-lg border border-secondary bg-background shadow-sm
 }
 .mdxeditor-popup-container input[type="file"] {
     @apply w-full h-full absolute top-0 left-0 opacity-0;
@@ -50,7 +71,7 @@
 }
 
 .mdxeditor-popup-container label[for="file"] {
-    @apply bg-background border-2  border-dashed flex-col border-border rounded-md w-full items-center justify-center flex py-8 text-sm  cursor-pointer font-sans before:w-3/5  before:stroke-border/40 before:opacity-40 before:content-[url("/icons/upload.svg")];
+    @apply bg-background border-2 border-dashed flex-col border-border rounded-md w-full items-center justify-center flex py-8 text-sm  cursor-pointer font-sans before:w-3/5  before:stroke-border/40 before:opacity-40 before:content-[url("/icons/upload.svg")] dark:before:invert;
 
     &:has(~input[type="file"]:active) {
         @apply border border-primary;

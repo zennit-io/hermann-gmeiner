@@ -20,7 +20,7 @@ type InputProps = {
   VariantProps<typeof inputContainerStyles>;
 //
 const inputContainerStyles = cva(
-  "relative flex h-9 items-center rounded-lg border px-1.5 focus-visible:ring-1 focus-visible:ring-ring",
+  "relative flex h-9 items-center rounded-lg border focus-visible:ring-1 focus-visible:ring-ring",
   {
     variants: {
       disabled: {
@@ -42,7 +42,7 @@ const inputDecoratorStyles = cva("relative z-10 size-5", {
   },
 });
 const inputStyles = cva(
-  "absolute left-1/2 top-1/2 h-full w-[calc(100%-theme(spacing.[1.5]))] -translate-x-1/2 -translate-y-1/2 border-none bg-transparent placeholder:text-muted-foreground focus-visible:outline-none",
+  "absolute left-1/2 top-1/2 size-full -translate-x-1/2 -translate-y-1/2 border-none bg-transparent px-2 placeholder:text-muted-foreground focus-visible:outline-none",
   {
     variants: {
       variant: {
@@ -58,16 +58,16 @@ const inputStyles = cva(
          dark:shadow-[0px_0px_1px_1px_var(--neutral-700)] dark:focus-visible:ring-neutral-600`,
       },
       decoratorPosition: {
-        start: "pl-[calc(theme(spacing.[5])+theme(spacing.[1.5]))]",
-        end: "pr-[calc(theme(spacing.[5])+theme(spacing.[1.5]))]",
-        both: "px-[calc(theme(spacing.[5])+theme(spacing.[1.5]))]",
+        start: "pl-[calc(theme(spacing.[5])+theme(spacing.[3.5]))]",
+        end: "pr-[calc(theme(spacing.[5])+theme(spacing.[3.5]))]",
+        both: "px-[calc(theme(spacing.[5])+theme(spacing.[3.5]))]",
       },
     },
   }
 );
 const RADIUS = 100;
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       StartDecorator,
@@ -147,5 +147,3 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = "Input";
-
-export default Input;
