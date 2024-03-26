@@ -1,11 +1,11 @@
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 
-type SpotlightFXProps = {
+export type SpotlightFXProps = {
   className?: string;
   fill?: string;
 };
 
-const SpotlightFX = ({ className, fill }: SpotlightFXProps) => {
+export const SpotlightFX = ({ className, fill }: SpotlightFXProps) => {
   return (
     <svg
       className={cn(
@@ -53,6 +53,3 @@ const SpotlightFX = ({ className, fill }: SpotlightFXProps) => {
     </svg>
   );
 };
-
-export default SpotlightFX;
-export type { SpotlightFXProps };

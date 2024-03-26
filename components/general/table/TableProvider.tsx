@@ -36,7 +36,7 @@ import {
 import Filter from "./Filter";
 import fuzzyFilter from "./_utils/fuzzy-filter";
 //
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import * as Accordion from "@radix-ui/react-accordion";
 //
 import {

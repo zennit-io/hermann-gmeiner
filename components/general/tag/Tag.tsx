@@ -1,6 +1,6 @@
 import { IconX } from "@tabler/icons-react";
 import { type Tag as TagType, TagInputProps } from "./TagInput";
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import { cva } from "class-variance-authority";
 
 // eslint-disable-next-line tailwindcss/no-custom-classname

@@ -4,7 +4,7 @@ import {
   TableProviderHandle,
 } from "@/components/general/table/TableProvider";
 import { createColumnHelper } from "@tanstack/table-core";
-import Badge from "@/components/general/Badge";
+import { Badge } from "@/components/general/Badge";
 import { useCallback, useMemo, useState } from "react";
 import { Input } from "@/components/general/Input";
 import { Tag, TagInput } from "@/components/general/tag/TagInput";
@@ -36,10 +36,9 @@ type Article = {
 type ArticleTableProps = {
   articles: Article[];
 };
-const ArticleTable = ({ articles }: ArticleTableProps) => {
+export const ArticleTable = ({ articles }: ArticleTableProps) => {
   const [tablePrimitive, setTablePrimitive] =
     useState<TableProviderHandle<Article> | null>(null);
-
   const setTableHandler = useCallback((node: TableProviderHandle<Article>) => {
     setTablePrimitive(node);
   }, []);
@@ -199,4 +198,3 @@ const columns = [
     },
   }),
 ];
-export default ArticleTable;

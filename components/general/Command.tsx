@@ -5,7 +5,7 @@ import { type DialogProps } from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
 import { IconSearch } from "@tabler/icons-react";
 
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import {
   Credenza,
   CredenzaContent,

@@ -2,7 +2,7 @@
 
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import {
   type ComponentPropsWithoutRef,
   type ElementRef,

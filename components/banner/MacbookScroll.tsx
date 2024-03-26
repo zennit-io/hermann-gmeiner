@@ -7,7 +7,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import {
   IconBrightnessDown,
   IconBrightnessUp,
@@ -29,7 +29,7 @@ import {
   IconVolume3,
   IconWorld,
 } from "@tabler/icons-react";
-import ZennitLogo from "@/icons/ZennitLogo";
+import { TrademarkZennit } from "@/icons/TrademarkZennit";
 
 type MacbookScrollProps = {
   showGradient?: boolean;
@@ -43,7 +43,7 @@ type MacbookScrollProps = {
 const parsePixelAmounts = (amount: `${number}px`) =>
   parseInt(amount.replace("px", ""));
 
-const MacbookScroll = ({
+export const MacbookScroll = ({
   showGradient,
   title,
   badge,
@@ -118,7 +118,7 @@ const MacbookScroll = ({
         rounded={rounded}
         translate={translate}
       >
-        {logo || <ZennitLogo />}
+        {logo || <TrademarkZennit />}
       </MacbookLid>
       {/* Base area */}
       <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200 dark:bg-[#272729]">
@@ -668,5 +668,3 @@ export const OptionKey = ({ className }: { className: string }) => {
     </svg>
   );
 };
-
-export default MacbookScroll;

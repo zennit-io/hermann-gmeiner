@@ -1,4 +1,5 @@
 "use client";
+
 import { ButtonHTMLAttributes, useState } from "react";
 //
 import Calendar, { CalendarProps } from "@/components/general/Calendar";
@@ -10,7 +11,7 @@ import {
 //
 import { IconCalendar } from "@tabler/icons-react";
 //
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import type { DateRange } from "react-day-picker";
 import "@/augmentation";
 

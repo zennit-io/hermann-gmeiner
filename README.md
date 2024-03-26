@@ -1,3 +1,5 @@
+# WELCOME TO THE "HERMANN GMEINER" VOCATIONAL SCHOOL WEBSITE GITHUB MONOREPO
+
 This is the README file for the website of the "Hermann Gmeiner" Vocational School in Tirana, Albania
 
 ## About the school

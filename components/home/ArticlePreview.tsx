@@ -1,6 +1,6 @@
-import React from "react";
 import { IconClock } from "@tabler/icons-react";
 import Image from "next/image";
+import { Badge } from "@/components/general/Badge";
 
 type ArticlePreviewProps = {
   title: string;
@@ -9,7 +9,7 @@ type ArticlePreviewProps = {
   length: string;
   thumbnail: string | null;
 };
-const ArticlePreview = ({
+export const ArticlePreview = ({
   title,
   length,
   tagList,
@@ -38,12 +38,7 @@ const ArticlePreview = ({
           {length}
         </span>
         {tagList.map((tag) => (
-          <span
-            key={tag}
-            className={"rounded-full bg-primary px-2 py-1 text-xs font-light"}
-          >
-            {tag}
-          </span>
+          <Badge key={tag}>{tag}</Badge>
         ))}
       </div>
       <span className={"w-full truncate text-xl font-semibold"}>{title}</span>
@@ -51,5 +46,3 @@ const ArticlePreview = ({
     </div>
   );
 };
-
-export default ArticlePreview;

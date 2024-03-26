@@ -1,5 +1,5 @@
 "use client";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 //
@@ -14,7 +14,12 @@ import NavigationMenu, {
 import Switch from "@/components/general/Switch";
 import Button from "@/components/general/Button";
 //
-import { IconMenu2, IconMoonStars, IconSun } from "@tabler/icons-react";
+import {
+  IconBrandGithub,
+  IconMenu2,
+  IconMoonStars,
+  IconSun,
+} from "@tabler/icons-react";
 //
 import ROUTES, { Route } from "@/consts/routes";
 import { useMediaQuery } from "@/components/general/credeza/use-media-query";
@@ -61,6 +66,8 @@ const MobileNavigationAccordion = ({ name, subRoutes, Icon }: Route) => {
   );
 };
 const MobileNavbar = () => {
+  const themeProvider = useTheme();
+  const isChecked = themeProvider.theme === "dark";
   return (
     <Sheet>
       <div
@@ -80,42 +87,60 @@ const MobileNavbar = () => {
         </SheetTrigger>
         <Button variant={"border"}>Apliko</Button>
       </div>
-      <SheetContent side={"left"}>
-        <h2 className={"text-2xl font-semibold"}>Hermann Gmeiner</h2>
-        <hr className={"mb-4"} />
-        <Accordion type={"multiple"}>
-          {ROUTES.map(({ name, subRoutes, href, Icon }) => {
-            if (subRoutes)
+      <SheetContent side={"left"} className={"flex flex-col justify-between"}>
+        <div>
+          <h2 className={"text-2xl font-semibold"}>Hermann Gmeiner</h2>
+          <hr className={"mb-4"} />
+          <Accordion type={"multiple"}>
+            {ROUTES.map(({ name, subRoutes, href, Icon }) => {
+              if (subRoutes)
+                return (
+                  <MobileNavigationAccordion
+                    key={name}
+                    subRoutes={subRoutes}
+                    Icon={Icon}
+                    name={name}
+                    href={name}
+                  />
+                );
               return (
-                <MobileNavigationAccordion
+                <Link
+                  href={href!}
                   key={name}
-                  subRoutes={subRoutes}
-                  Icon={Icon}
-                  name={name}
-                  href={name}
-                />
+                  className={
+                    "my-1 flex items-center gap-2 py-1 text-sm first:mt-0 last:mb-0"
+                  }
+                >
+                  {Icon && <Icon size={16} />}
+                  {name}
+                </Link>
               );
-            return (
-              <Link
-                href={href!}
-                key={name}
-                className={
-                  "my-1 flex items-center gap-2 py-1 text-sm first:mt-0 last:mb-0"
-                }
-              >
-                {Icon && <Icon size={16} />}
-                {name}
-              </Link>
-            );
-          })}
-        </Accordion>
+            })}
+          </Accordion>
+        </div>
+        <div className={"flex items-center justify-between"}>
+          <Switch
+            OnIcon={IconSun}
+            OffIcon={IconMoonStars}
+            checked={isChecked}
+            onCheckedChange={(checked) => {
+              themeProvider.setTheme(checked ? "dark" : "light");
+            }}
+          />
+          <Button variant={"border"}>
+            Shiko kodin ne <IconBrandGithub />
+          </Button>
+        </div>
       </SheetContent>
     </Sheet>
   );
 };
 const DesktopNavbar = () => {
   const themeProvider = useTheme();
-  const isChecked = themeProvider.theme === "dark";
+  const [isChecked, setIsChecked] = useState(themeProvider.theme === "dark");
+  useEffect(() => {
+    if (themeProvider.theme) setIsChecked(themeProvider.theme === "dark");
+  }, [themeProvider.theme]);
   return (
     <div
       className={

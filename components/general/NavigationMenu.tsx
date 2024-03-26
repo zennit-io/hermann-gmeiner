@@ -1,7 +1,7 @@
 import React, {
-  forwardRef,
-  type ElementRef,
   type ComponentPropsWithoutRef,
+  type ElementRef,
+  forwardRef,
   ReactNode,
 } from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
@@ -9,7 +9,7 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { IconChevronDown as ChevronDownIcon } from "@tabler/icons-react";
 //
 import { cva } from "class-variance-authority";
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 
 const NavigationMenu = forwardRef<
   ElementRef<typeof NavigationMenuPrimitive.Root>,

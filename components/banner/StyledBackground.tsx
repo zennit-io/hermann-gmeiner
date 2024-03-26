@@ -18,11 +18,14 @@ const backgroundStyles = cva(
   }
 );
 
-type StyledBackgroundProps = {
+export type StyledBackgroundProps = {
   className?: string;
 } & VariantProps<typeof backgroundStyles>;
 
-function StyledBackground({ className, variant }: StyledBackgroundProps) {
+export const StyledBackground = ({
+  className,
+  variant,
+}: StyledBackgroundProps) => {
   return (
     <div className={className}>
       <div className={backgroundStyles({ variant })}>
@@ -30,7 +33,4 @@ function StyledBackground({ className, variant }: StyledBackgroundProps) {
       </div>
     </div>
   );
-}
-
-export default StyledBackground;
-export type { StyledBackgroundProps };
+};

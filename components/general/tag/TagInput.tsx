@@ -12,7 +12,7 @@ import { TagList } from "./TagList";
 import { tagVariants } from "./Tag";
 import { Autocomplete } from "./AutoComplete";
 import { toast } from "sonner";
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 
 export enum Delimiter {
   Comma = ",",

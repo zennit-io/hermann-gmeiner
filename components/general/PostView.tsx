@@ -2,7 +2,7 @@ import Avatar, {
   AvatarFallback,
   AvatarImage,
 } from "@/components/general/Avatar";
-import Badge from "@/components/general/Badge";
+import { Badge } from "@/components/general/Badge";
 import Button from "@/components/general/Button";
 //
 import {

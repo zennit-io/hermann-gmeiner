@@ -1,7 +1,7 @@
 import React from "react";
 import { type Tag as TagType, TagInputProps } from "./TagInput";
 import { Tag, type TagProps } from "./Tag";
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import SortableList, { SortableItem } from "react-easy-sort";
 
 export type TagListProps = {

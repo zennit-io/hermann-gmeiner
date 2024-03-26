@@ -8,7 +8,7 @@ import {
 } from "react";
 //
 import { cva, type VariantProps } from "class-variance-authority";
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import { IconEye, IconEyeClosed, TablerIconsProps } from "@tabler/icons-react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 //

@@ -13,7 +13,7 @@ import {
   PopoverTrigger,
 } from "@/components/general/Popover";
 import { IconChevronDown } from "@tabler/icons-react";
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 
 type AutocompleteProps = {
   tags: TagType[];
@@ -81,7 +81,6 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
           </CommandList>
         </Command>
       </PopoverContent>
-      ;
     </Popover>
   );
 };

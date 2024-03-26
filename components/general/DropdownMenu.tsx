@@ -14,7 +14,7 @@ import {
   IconCircleDotFilled,
 } from "@tabler/icons-react";
 //
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 

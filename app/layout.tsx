@@ -1,14 +1,14 @@
 //
 import type { Metadata } from "next";
 //
-import ThemeProvider from "@/components/layout/ThemeProvider";
-//
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { GeistSans } from "geist/font/sans";
-import "./globals.css";
+import { GeistMono } from "geist/font/mono";
 import { Navbar } from "@/components/home/Navbar";
-import cn from "@/lib/cn";
 import { Toaster } from "@/components/general/Sonner";
-import type { LayoutProps } from "@/types/navigation/LayoutProps";
+import { type LayoutProps } from "@/types/navigation/LayoutProps";
+import { cn } from "@/lib/cn";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Shkolla 'Hermann Gmeiner'",
@@ -20,8 +20,9 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="en" className={"h-screen w-screen overflow-hidden"}>
       <body
         className={cn(
-          "relative size-full max-h-full max-w-full overflow-hidden bg-background text-foreground",
-          GeistSans.className
+          "relative size-full max-h-full max-w-full overflow-hidden bg-background font-sans text-foreground",
+          GeistSans.variable,
+          GeistMono.variable
         )}
       >
         <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>

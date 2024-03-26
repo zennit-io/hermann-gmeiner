@@ -2,7 +2,7 @@ import { type ButtonHTMLAttributes, forwardRef } from "react";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cva, VariantProps } from "class-variance-authority";
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 
 type ButtonProps = {
   asChild?: boolean;
@@ -20,7 +20,7 @@ const buttonStyles = cva(
         secondary:
           "dark:bg-metallic-light bg-metallic-dark border border-foreground bg-center transition-all duration-500 ease-in-out hover:bg-[length:200%_200%]",
         border:
-          "relative overflow-hidden !rounded-full p-0.5 transition-shadow duration-500 ease-in-out hover:shadow-top focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
+          "relative overflow-hidden !rounded-full p-0.5 transition-shadow duration-500 ease-in-out hover:shadow-top focus:outline-none",
         outline:
           "inline-flex items-center justify-center rounded-md border border-none border-input bg-background p-0 text-sm font-medium !shadow-neumorphic ring-0 transition-colors hover:text-accent-foreground focus-visible:outline-none active:pt-[2px] active:!shadow-neumorphic-active disabled:pointer-events-none disabled:opacity-50",
         icon: "size-8 max-h-8 max-w-8 !rounded-full rounded-full bg-foreground/10 p-0 transition-colors hover:bg-foreground/60 ",

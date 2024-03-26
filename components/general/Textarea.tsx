@@ -1,4 +1,4 @@
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import { forwardRef, type TextareaHTMLAttributes } from "react";
 
 export type TextareaProps = {} & TextareaHTMLAttributes<HTMLTextAreaElement>;

@@ -8,7 +8,7 @@ import {
 //
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 //
-import cn from "@/lib/cn";
+import { cn } from "@/lib/cn";
 //
 type RequiredSwitchIconProps = { className?: string; stroke?: number } & any;
 type SwitchProps = ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> & {
