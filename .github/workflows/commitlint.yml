@@ -1,0 +1,40 @@
+name: CI
+
+on: [ push, pull_request ]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install required dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y sudo
+          sudo apt install -y git curl
+          sudo curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+          sudo DEBIAN_FRONTEND=noninteractive apt install -y nodejs
+      - name: Print versions
+        run: |
+          sudo git --version
+          sudo node --version
+          sudo npm --version
+          sudo npx commitlint --version
+      - name: Install commitlint
+        run: |
+          sudo npm install conventional-changelog-conventionalcommits
+          sudo npm install commitlint@latest
+          echo "module.exports = {extends: ['@commitlint/config-conventional']};" | sudo tee commitlint.config.js
+
+      - name: Install commitlint configuration
+        run: sudo npm install @commitlint/config-conventional
+
+      - name: Validate current commit (last commit) with commitlint
+        if: github.event_name == 'push'
+        run: sudo npx commitlint --last --verbose --config commitlint.config.js
+
+      - name: Validate PR commits with commitlint
+        if: github.event_name == 'pull_request'
+        run: sudo npx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose --config commitlint.config.js
