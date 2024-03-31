@@ -1,6 +1,6 @@
-import { useEffect, useState, type InputHTMLAttributes } from "react";
+import { type InputHTMLAttributes, useEffect, useState } from "react";
 //
-import Input from "@/components/general/Input";
+import { Input } from "@/components/general/Input";
 //
 type DebouncedInputProps = {
   value: string | number;

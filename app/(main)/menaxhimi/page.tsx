@@ -1,22 +1,7 @@
-import { Suspense } from "react";
-//
-import dynamic from "next/dynamic";
-//
+import React from "react";
 
-const MDXEditor = dynamic(
-  () => import("../../../components/general/mdx-editor/MDXEditor"),
-  {
-    ssr: false,
-  }
-);
-const ManagementPage = () => {
-  return (
-    <main className={"size-full"}>
-      <Suspense fallback={null}>
-        <MDXEditor markdown={``} />
-      </Suspense>
-    </main>
-  );
+const Page = () => {
+  return <div>Menaxhimi</div>;
 };
 
-export default ManagementPage;
+export default Page;

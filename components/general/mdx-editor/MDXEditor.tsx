@@ -19,7 +19,7 @@ import {
   markdownShortcutPlugin,
   MDXEditor as MDXEditorProvider,
   MDXEditorMethods,
-  type MDXEditorProps,
+  type MDXEditorProps as PrimitiveMDXEditorProps,
   quotePlugin,
   tablePlugin,
   thematicBreakPlugin,
@@ -108,12 +108,16 @@ const saveArticleSchema = z.object({
   author: z.string(),
 });
 type FormFields = z.infer<typeof saveArticleSchema>;
-const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
+type MDXEditorProps = {
+  defaultValues?: Partial<FormFields>;
+} & PrimitiveMDXEditorProps;
+const MDXEditor = ({ markdown, defaultValues, ...props }: MDXEditorProps) => {
   const editorHandle = useRef<MDXEditorMethods | null>(null);
   const form = useForm<FormFields>({
     resolver: zodResolver(saveArticleSchema),
     defaultValues: {
       author: "Shkolla",
+      ...(defaultValues ?? {}),
     },
   });
   const handleFormSubmit = async (values: FormFields) => {
@@ -128,11 +132,11 @@ const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
     const content = editorHandle.current?.getMarkdown() ?? "";
     const markdown = "---\n" + frontmatter + "---\n" + content;
     const thumbnail = getThumbnailFromMarkdown(markdown) ?? "-";
-    const description = getDescriptionFromMarkdown(markdown);
+    const description = await getDescriptionFromMarkdown(markdown);
     await createArticle({ content: markdown, thumbnail, description });
   };
   return (
-    <section className={"size-full p-6"}>
+    <section className={"size-full"}>
       <Credenza>
         <MDXEditorProvider
           ref={editorHandle}
@@ -264,7 +268,7 @@ const MDXEditor = ({ markdown, ...props }: MDXEditorProps) => {
                         }
                         onBlur={onBlur}
                         placeholder={"Shto nje temë"}
-                        className={"w-full bg-background"}
+                        className={"px-0"}
                       />
                     </FormControl>
                     <FormMessage />

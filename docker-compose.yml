@@ -20,6 +20,7 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://admin:adminadmin@db:5432/db
+      AUTH_SECRET: BWuyOm5juK6o2fq1QW00lTplaKFdgpBBnMwb1SLDDEk=
 
   db:
     image: postgres:13-alpine

@@ -1,3 +1,4 @@
+"use client";
 import { type ReactNode, useEffect, useState } from "react";
 
 export type ClientOnlyProps = {

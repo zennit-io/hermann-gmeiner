@@ -1,4 +1,4 @@
-import { integer, pgTable, text } from "drizzle-orm/pg-core";
+import { date, integer, pgTable, text } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
 export const Article = pgTable("article", {
@@ -7,33 +7,37 @@ export const Article = pgTable("article", {
   thumbnail: text("thumbnail"),
   description: text("content").notNull(),
   length: text("length").notNull(),
+  createdAt: date("created_at").notNull(),
 });
+
 export const Tag = pgTable("tag", {
   id: integer("id").primaryKey(),
   name: text("name").notNull(),
-  articleId: integer("article_id").notNull(),
+  createdAt: date("created_at").notNull(),
 });
 
-export const TagGroup = pgTable("tag_group", {
+export const User = pgTable("user", {
   id: integer("id").primaryKey(),
-  articleId: integer("article_id").notNull(),
+  email: text("email").notNull(),
+  username: text("username").notNull(),
+  password: text("password").notNull(),
+  type: text("type", { enum: ["staff", "admin"] }).notNull(),
+  createdAt: date("created_at").notNull(),
 });
 
-export const TagGroupRelations = relations(TagGroup, ({ one, many }) => ({
-  article: one(Article, {
-    fields: [TagGroup.articleId],
-    references: [Article.id],
-  }),
-  tags: many(Tag),
-}));
+export const ArticleTag = pgTable("article_tag", {
+  articleId: integer("article_id").notNull(),
+  tagId: integer("tag_id").notNull(),
+});
 
 export const ArticleRelations = relations(Article, ({ many }) => ({
-  tags: many(Tag),
+  tags: many(ArticleTag, {
+    relationName: "tagList",
+  }),
 }));
 
-export const TagRelations = relations(Tag, ({ one }) => ({
-  article: one(Article, {
-    fields: [Tag.articleId],
-    references: [Article.id],
+export const TagRelations = relations(Tag, ({ many }) => ({
+  articles: many(ArticleTag, {
+    relationName: "articleList",
   }),
 }));

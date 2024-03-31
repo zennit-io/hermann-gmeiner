@@ -1,6 +1,5 @@
 "use client";
-import { useState } from "react";
-import { format } from "date-fns";
+import { ButtonHTMLAttributes, useState } from "react";
 //
 import Calendar, { CalendarProps } from "@/components/general/Calendar";
 import {
@@ -13,6 +12,7 @@ import { IconCalendar } from "@tabler/icons-react";
 //
 import cn from "@/lib/cn";
 import type { DateRange } from "react-day-picker";
+import "@/augmentation";
 
 type CalendarMode = CalendarProps["mode"];
 type DatePickResult<Mode extends CalendarMode> = Mode extends "single"
@@ -21,11 +21,15 @@ type DatePickResult<Mode extends CalendarMode> = Mode extends "single"
 type DatePickerProps<Mode extends CalendarMode> = {
   mode?: Mode;
   onDatePick?: (result: DatePickResult<Mode>) => void;
-};
+  placeholder?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function DatePicker<Mode extends CalendarMode>({
   mode = "single",
   onDatePick,
+  placeholder,
+  className,
+  ...props
 }: DatePickerProps<Mode>) {
   const [selectedDate, setSelectedDate] = useState<
     Date | DateRange | undefined
@@ -38,16 +42,18 @@ export function DatePicker<Mode extends CalendarMode>({
     <Popover>
       <PopoverTrigger asChild>
         <button
+          {...props}
           className={cn(
-            "bg- flex w-[280px] items-center justify-start rounded-lg bg-foreground p-1 text-left text-black",
-            !selectedDate && "text-muted-foreground"
+            "flex min-w-64 items-center justify-start rounded-lg border border-border px-2 py-1.5 text-left text-foreground",
+            !selectedDate && "text-muted-foreground",
+            className
           )}
         >
           <IconCalendar className="mr-2 size-4" />
           {selectedDate ? (
             formatDisplayDate(selectedDate)
           ) : (
-            <span>Pick a date</span>
+            <span>{placeholder ?? "Pick a Date"}</span>
           )}
         </button>
       </PopoverTrigger>
@@ -65,8 +71,6 @@ export function DatePicker<Mode extends CalendarMode>({
 }
 
 const formatDisplayDate = (dateResult: Date | DateRange) => {
-  if (dateResult instanceof Date) {
-    return format(dateResult, "PPP");
-  }
-  return `${dateResult.from ? format(dateResult.from, "PPP") : ""} - ${dateResult.to ? format(dateResult.to, "PPP") : ""}`;
+  if (dateResult instanceof Date) return dateResult.format().date;
+  return `${dateResult.from ? dateResult.from.format().date : ""} - ${dateResult.to ? dateResult.to.format().date : ""}`;
 };

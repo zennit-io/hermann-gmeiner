@@ -9,7 +9,7 @@ import {
 //
 import { cva, type VariantProps } from "class-variance-authority";
 import cn from "@/lib/cn";
-import { TablerIconsProps } from "@tabler/icons-react";
+import { IconEye, IconEyeClosed, TablerIconsProps } from "@tabler/icons-react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 //
 type InputProps = {
@@ -20,7 +20,7 @@ type InputProps = {
   VariantProps<typeof inputContainerStyles>;
 //
 const inputContainerStyles = cva(
-  "relative flex h-9 items-center rounded-lg border focus-visible:ring-1 focus-visible:ring-ring",
+  "relative flex h-9 items-center rounded-lg border border-input focus-visible:ring-1 focus-visible:ring-ring",
   {
     variants: {
       disabled: {
@@ -35,8 +35,8 @@ const inputContainerStyles = cva(
 const inputDecoratorStyles = cva("relative z-10 size-5", {
   variants: {
     position: {
-      start: "mr-1.5",
-      end: "ml-auto",
+      start: "mx-1.5",
+      end: "mx-1.5",
       both: "mx-1.5",
     },
   },
@@ -58,9 +58,10 @@ const inputStyles = cva(
          dark:shadow-[0px_0px_1px_1px_var(--neutral-700)] dark:focus-visible:ring-neutral-600`,
       },
       decoratorPosition: {
-        start: "pl-[calc(theme(spacing.[5])+theme(spacing.[3.5]))]",
-        end: "pr-[calc(theme(spacing.[5])+theme(spacing.[3.5]))]",
-        both: "px-[calc(theme(spacing.[5])+theme(spacing.[3.5]))]",
+        start: "pl-[calc(theme(spacing.[5])+theme(spacing.[3]))]",
+        end: "pr-[calc(theme(spacing.[5])+theme(spacing.[3]))]",
+        both: "px-[calc(theme(spacing.[5])+theme(spacing.[3]))]",
+        passwordAndEnd: "pr-[calc(theme(spacing.[10])+theme(spacing.[3]))]",
       },
     },
   }
@@ -76,10 +77,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       onTextChange,
       variant,
+      type,
       ...props
     },
     ref
   ) => {
+    const [isHidden, setIsHidden] = useState(type === "password");
     if (onTextChange) {
       props = {
         ...props,
@@ -102,10 +105,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         ? "both"
         : StartDecorator
           ? "start"
-          : EndDecorator
-            ? "end"
-            : undefined
+          : EndDecorator && type === "password"
+            ? "passwordAndEnd"
+            : EndDecorator || type === "password"
+              ? "end"
+              : undefined
     ) as VariantProps<typeof inputStyles>["decoratorPosition"];
+
     const isBorder = variant === "border";
     return (
       <motion.div
@@ -135,12 +141,32 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           {...props}
           ref={ref}
+          type={type === "password" ? (isHidden ? "password" : "text") : type}
           disabled={disabled}
           className={inputStyles({ decoratorPosition, variant })}
         />
-        {EndDecorator && (
-          <EndDecorator className={inputDecoratorStyles({ position: "end" })} />
-        )}
+
+        <div className={"ml-auto flex"}>
+          {EndDecorator && (
+            <EndDecorator
+              className={inputDecoratorStyles({ position: "end" })}
+            />
+          )}
+          {type === "password" &&
+            (isHidden ? (
+              <IconEye
+                className={inputDecoratorStyles({ position: "end" })}
+                stroke={1.5}
+                onClick={() => setIsHidden(false)}
+              />
+            ) : (
+              <IconEyeClosed
+                className={inputDecoratorStyles({ position: "end" })}
+                stroke={1.5}
+                onClick={() => setIsHidden(true)}
+              />
+            ))}
+        </div>
       </motion.div>
     );
   }

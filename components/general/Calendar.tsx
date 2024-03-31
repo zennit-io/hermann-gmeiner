@@ -82,7 +82,7 @@ function Calendar({
           >
             <SelectTrigger
               className={
-                "mx-0.5 inline-flex w-[calc(50%-theme(spacing.1))] min-w-[calc(50%-theme(spacing.1))]"
+                "mx-0.5 inline-flex w-[calc(50%-theme(spacing.1))] min-w-[calc(50%-theme(spacing.1))] bg-background shadow-inner shadow-foreground/40"
               }
             >
               {caption}

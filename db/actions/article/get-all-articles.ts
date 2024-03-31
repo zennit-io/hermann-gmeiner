@@ -1,6 +1,6 @@
 "use server";
 import db from "@/db/drizzle";
-import { Article, Tag } from "@/db/schema";
+import { Article, ArticleTag, Tag } from "@/db/schema";
 import { sql } from "drizzle-orm";
 
 type GetAllArticles = {
@@ -20,12 +20,21 @@ export const getAllArticles = async ({
 
   return await Promise.all(
     articles.map(async (article) => {
-      const tags = await db.select().from(Tag).where(sql`${Tag.articleId}
+      const tagsIds = await db.select().from(ArticleTag)
+        .where(sql`${ArticleTag.articleId}
       =
       ${article.id}`);
+      const tagList = await Promise.all(
+        tagsIds.map(async (tag) => {
+          const [selectedTag] = await db.select().from(Tag).where(sql`${Tag.id}
+          =
+          ${tag.tagId}`);
+          return selectedTag.name;
+        })
+      );
       return {
         ...article,
-        tagList: tags.map((tag) => tag.name),
+        tagList,
       };
     })
   );

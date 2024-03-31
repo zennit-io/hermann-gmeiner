@@ -3,8 +3,9 @@ import { type Tag as TagType, TagInputProps } from "./TagInput";
 import cn from "@/lib/cn";
 import { cva } from "class-variance-authority";
 
+// eslint-disable-next-line tailwindcss/no-custom-classname
 export const tagVariants = cva(
-  "inline-flex items-center gap-1 rounded-lg border px-2 text-sm transition-all",
+  "inline-flex h-6 items-center gap-1 rounded-lg border px-2 text-sm transition-all",
   {
     variants: {
       variant: {
@@ -15,7 +16,7 @@ export const tagVariants = cva(
           "border-destructive bg-destructive text-destructive-foreground hover:bg-destructive/90",
       },
       size: {
-        sm: "h-7 text-xs",
+        sm: "h-6 text-xs",
         md: "h-8 text-sm",
         lg: "h-9 text-base",
         xl: "h-10 text-lg",

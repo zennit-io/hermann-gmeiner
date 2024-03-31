@@ -23,7 +23,7 @@ export type Post = {
   contentHtml: string;
 } & PostMetadata;
 //
-const POSTS_DIRECTORY = path.join(process.cwd(), "public", "posts");
+const POSTS_DIRECTORY = "/app/static/articles";
 
 const readArticleMarkdown = async (id: number | string): Promise<Post> => {
   const fullPath = path.join(POSTS_DIRECTORY, `${id}.md`);

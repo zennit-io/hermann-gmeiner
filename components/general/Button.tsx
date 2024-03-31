@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes } from "react";
+import { type ButtonHTMLAttributes, forwardRef } from "react";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cva, VariantProps } from "class-variance-authority";
@@ -6,7 +6,7 @@ import cn from "@/lib/cn";
 
 type ButtonProps = {
   asChild?: boolean;
-} & HTMLAttributes<HTMLButtonElement> &
+} & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonStyles>;
 
 // eslint-disable-next-line tailwindcss/no-contradicting-classname
@@ -21,11 +21,11 @@ const buttonStyles = cva(
           "dark:bg-metallic-light bg-metallic-dark border border-foreground bg-center transition-all duration-500 ease-in-out hover:bg-[length:200%_200%]",
         border:
           "relative overflow-hidden !rounded-full p-0.5 transition-shadow duration-500 ease-in-out hover:shadow-top focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
-        tertiary:
+        outline:
           "inline-flex items-center justify-center rounded-md border border-none border-input bg-background p-0 text-sm font-medium !shadow-neumorphic ring-0 transition-colors hover:text-accent-foreground focus-visible:outline-none active:pt-[2px] active:!shadow-neumorphic-active disabled:pointer-events-none disabled:opacity-50",
         icon: "size-8 max-h-8 max-w-8 !rounded-full rounded-full bg-foreground/10 p-0 transition-colors hover:bg-foreground/60 ",
         default:
-          "border border-primary/40 bg-gradient-to-t from-primary-foreground via-primary to-primary-foreground shadow-inner transition-shadow duration-300 hover:shadow-white",
+          "border border-primary/40 bg-gradient-to-b from-primary-background via-primary to-primary-background shadow-inner shadow-white/60 backdrop-blur-xl transition-shadow duration-300 hover:shadow-white",
       },
     },
     defaultVariants: {
@@ -40,11 +40,11 @@ const contentStyles = cva(
     variants: {
       variant: {
         primary:
-          "text-slate-50 shadow-inner shadow-slate-50/60 backdrop-blur-md transition-all duration-500 ease-in-out hover:backdrop-blur-lg",
-        secondary: "shadow-inner shadow-foreground",
+          "w-full text-slate-50 shadow-inner shadow-slate-50/60 backdrop-blur-md transition-all duration-500 ease-in-out hover:backdrop-blur-lg",
+        secondary: "w-full shadow-inner shadow-foreground",
         border:
           "inline-flex size-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white shadow-inner shadow-white/40 backdrop-blur-3xl",
-        tertiary: "text-foreground",
+        outline: "text-foreground",
         default:
           "size-full text-white shadow-inner shadow-white/40 backdrop-blur-md",
         icon: "flex w-full items-center justify-center !p-0 [&>svg]:size-5 [&>svg]:stroke-foreground",

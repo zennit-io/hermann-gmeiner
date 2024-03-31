@@ -12,6 +12,7 @@ import { TagList } from "./TagList";
 import { tagVariants } from "./Tag";
 import { Autocomplete } from "./AutoComplete";
 import { toast } from "sonner";
+import cn from "@/lib/cn";
 
 export enum Delimiter {
   Comma = ",",
@@ -232,16 +233,19 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
     return (
       <div
         ref={ref}
-        className={`flex w-full ${
+        className={cn(
+          "flex w-full items-center justify-between gap-2 px-2",
           inputFieldPosition === "bottom"
             ? "flex-col"
             : inputFieldPosition === "top"
               ? "flex-col-reverse"
-              : "flex-row"
-        }`}
+              : "flex-row",
+          className
+        )}
       >
         {!usePopoverForTags && (
           <TagList
+            inputFieldPosition={inputFieldPosition}
             tags={truncatedTags}
             customTagRenderer={customTagRenderer}
             variant={variant}
@@ -260,8 +264,15 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
           />
         )}
         {enableAutocomplete ? (
-          <div className="mb-3 w-full max-w-[450px]">
+          <div
+            className={cn(
+              "w-full",
+              inputFieldPosition !== "inline" && "mb-3",
+              tags.length > 0 && "w-auto"
+            )}
+          >
             <Autocomplete
+              placeholder={placeholder}
               onTagAdd={onTagAdd}
               tags={tags}
               setTags={setTags}
@@ -283,7 +294,7 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
                   onKeyDown={handleKeyDown}
                   onFocus={onFocus}
                   onBlur={onBlur}
-                  className="w-full"
+                  className={"w-full"}
                 />
               ) : (
                 <TagPopover
@@ -323,7 +334,7 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
             </Autocomplete>
           </div>
         ) : (
-          <div className="w-full">
+          <div className={"w-full"}>
             {!usePopoverForTags ? (
               <Input
                 ref={inputRef}
@@ -340,10 +351,10 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
                 onFocus={onFocus}
                 onBlur={onBlur}
                 {...inputProps}
-                className={className}
                 autoComplete={enableAutocomplete ? "on" : "off"}
                 list={enableAutocomplete ? "autocomplete-options" : undefined}
                 disabled={maxTags !== undefined && tags.length >= maxTags}
+                className={"bg-background"}
               />
             ) : (
               <TagPopover

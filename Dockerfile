@@ -32,4 +32,5 @@ FROM base as dev
 ENV NODE_ENV=development
 RUN  npm cache clean --force && npm install
 COPY . .
+RUN npm install -g ts-node
 CMD npm run dev

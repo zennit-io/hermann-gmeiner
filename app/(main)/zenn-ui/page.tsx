@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 
 import { ColumnDef } from "@tanstack/react-table";
 import fuzzySort from "@/components/general/table/_utils/fuzzy-sort";
-import TableProvider from "@/components/general/table/TableProvider";
+import { TableProvider } from "@/components/general/table/TableProvider";
 import Button from "@/components/general/Button";
 import { Input } from "@/components/general/Input";
 import Calendar from "@/components/general/Calendar";
@@ -85,7 +85,6 @@ const ZennUIPage = () => {
         <Button variant={"default"}>Zennit</Button>
         <Button variant={"primary"}>Zennit</Button>
         <Button variant={"secondary"}>Zennit</Button>
-        <Button variant={"tertiary"}>Zennit</Button>
         <Button variant={"border"}>Zennit</Button>
       </div>
       <div className={"flex gap-2"}>
@@ -99,7 +98,7 @@ const ZennUIPage = () => {
       <div>
         <Calendar />
       </div>
-      <TableProvider columns={columns} data={data} />
+      <TableProvider columns={columns} rows={data} />
     </div>
   );
 };

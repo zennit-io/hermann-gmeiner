@@ -5,13 +5,18 @@ import {
   IconBellBolt,
   IconBook,
   IconBrandThreejs,
+  IconClipboard,
+  IconClipboardPlus,
   IconHeartHandshake,
   IconHome,
+  IconLayout,
   IconLuggage,
   IconNews,
   IconNotebook,
   IconPinned,
   IconTrophy,
+  IconUserPlus,
+  IconUsers,
   TablerIconsProps,
 } from "@tabler/icons-react";
 
@@ -22,7 +27,54 @@ type Route = Readonly<{
   href?: string;
   description?: string;
 }>;
-
+const PRIVATE_ROUTES: Route[] = [
+  {
+    name: "Paneli",
+    Icon: IconLayout,
+    href: "/menaxhimi",
+    description: "Paneli i menaxhimit",
+  },
+  {
+    name: "Stafi",
+    Icon: IconUsers,
+    href: "/menaxhimi/stafi",
+    description: "Menaxhimi i stafit",
+    subRoutes: [
+      {
+        name: "Shto staf",
+        Icon: IconUserPlus,
+        href: "/menaxhimi/stafi/shto",
+        description: "Menaxhimi i artikujve",
+      },
+    ],
+  },
+  {
+    name: "Menaxho Histori Suksesi",
+    Icon: IconTrophy,
+    href: "/menaxhimi/histori-suksesi",
+    description: "Paneli i menaxhimit",
+  },
+  {
+    name: "Menaxho Vendet e Punës",
+    Icon: IconLuggage,
+    href: "/menaxhimi/vende-te-lira-pune",
+    description: "Paneli i menaxhimit",
+  },
+  {
+    name: "Artikujt",
+    Icon: IconClipboard,
+    href: "/menaxhimi/artikujt",
+    description: "Menaxhimi i artikujve",
+    subRoutes: [
+      {
+        name: "Krijo një artikull",
+        Icon: IconClipboardPlus,
+        href: "/menaxhimi/artikujt/krijo",
+        description: "Menaxhimi i artikujve",
+      },
+    ],
+  },
+];
 const ROUTES: Route[] = [
   {
     name: "Kreu",
@@ -99,4 +151,5 @@ const ROUTES: Route[] = [
 ];
 
 export default ROUTES;
+export { PRIVATE_ROUTES };
 export type { Route };

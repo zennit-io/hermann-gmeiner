@@ -27,6 +27,12 @@ docker-compose up --build
 http://localhost:3000/
 ```
 
+- Create a admin user with the following command:
+
+```bash
+docker exec -it <container_id> node /app/db/operations/create-admin-user.js --email=<email> --password=<password> --username=<username>
+```
+
 - This will start the next.js project and the postgres database.
 - If you want to fork the project and run it locally, you need to have installed Docker.
 

@@ -16,7 +16,7 @@ const LandingPage = () => {
     <main className={"relative h-[150dvh] sm:h-[200dvh]"}>
       <StyledBackground
         className={"absolute left-0 top-0 flex size-full flex-col"}
-        variant={"dots"}
+        variant={"grid-small"}
       />
       <SpotlightFX className={"-top-40 left-0 md:-top-20 md:left-60"} />
       <MacbookScroll
