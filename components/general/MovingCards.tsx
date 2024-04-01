@@ -86,14 +86,14 @@ const MovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          " min-w-1/4 flex h-full w-full min-w-full shrink-0 flex-nowrap gap-4 sm:min-w-[unset]",
+          " min-w-1/4 flex h-full w-full min-w-full shrink-0 flex-nowrap gap-0.5 sm:min-w-[unset] sm:gap-4",
           start && "animate-scroll ",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
         {items.map(({ name, quote, title, image }) => (
           <li
-            className="group relative max-w-full shrink-0 overflow-hidden rounded-md transition-all duration-500 hover:z-[1000] hover:scale-[110%] hover:shadow-top"
+            className="group relative max-w-full shrink-0 overflow-hidden transition-all duration-500 hover:z-[1000] hover:scale-[110%] hover:shadow-top sm:rounded-md"
             style={{
               width: `calc((100% / ${items.length}) - 1rem)`,
             }}

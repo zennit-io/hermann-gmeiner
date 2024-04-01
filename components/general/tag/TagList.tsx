@@ -2,6 +2,7 @@ import React from "react";
 import { type Tag as TagType, TagInputProps } from "./TagInput";
 import { Tag, type TagProps } from "./Tag";
 import cn from "@/lib/cn";
+import SortableList, { SortableItem } from "react-easy-sort";
 
 export type TagListProps = {
   tags: TagType[];
@@ -21,7 +22,7 @@ export const TagList: React.FC<TagListProps> = ({
   direction,
   draggable,
   onSortEnd,
-                                                  inputFieldPosition,
+  inputFieldPosition,
   ...tagListProps
 }) => {
   const [draggedTagId, setDraggedTagId] = React.useState<string | null>(null);
@@ -43,11 +44,11 @@ export const TagList: React.FC<TagListProps> = ({
           "flex flex-col gap-1": direction === "column",
         },
         inputFieldPosition === "inline" &&
-        "w-auto max-w-[calc(100%-theme(width.4))] flex-nowrap gap-2",
+          "w-auto max-w-[calc(100%-theme(width.4))] flex-nowrap gap-2"
       )}
     >
       {draggable ? (
-        <,SortableList
+        <SortableList
           onSortEnd={onSortEnd}
           className={"list flex flex-wrap gap-2"}
           dropTarget={<DropTarget />}

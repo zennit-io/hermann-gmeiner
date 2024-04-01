@@ -3,6 +3,7 @@ import db from "@/db/drizzle";
 import { Article } from "@/db/schema";
 import { sql } from "drizzle-orm";
 import fs from "fs";
+import matter from "gray-matter";
 
 export const getArticle = async (id: number) => {
   const articleRecord = await db
@@ -15,8 +16,10 @@ export const getArticle = async (id: number) => {
     .then((articles) => articles[0]);
 
   const markdownFile = fs.readFileSync(`/app/static/articles/${id}.md`, "utf8");
+  const { content, data } = matter(markdownFile);
   return {
     ...articleRecord,
-    content: markdownFile,
+    content,
+    data,
   };
 };

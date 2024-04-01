@@ -263,6 +263,9 @@ const MDXEditor = ({ markdown, defaultValues, ...props }: MDXEditorProps) => {
                     </FormLabel>
                     <FormControl>
                       <TagInput
+                        tags={
+                          value.map((tag) => ({ text: tag, id: tag })) ?? []
+                        }
                         onTagAdd={(newTag) =>
                           onChange([...(value ?? []), newTag])
                         }

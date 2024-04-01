@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang="en" className={"h-screen w-screen"}>
+    <html lang="en" className={"h-screen w-screen overflow-hidden"}>
       <body
         className={cn(
-          "relative h-full w-full bg-background text-foreground",
+          "relative size-full max-h-full max-w-full overflow-hidden bg-background text-foreground",
           GeistSans.className
         )}
       >

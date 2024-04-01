@@ -5,7 +5,13 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <main className={"flex size-full"}>
       <Menu />
-      {children}
+      <section
+        className={
+          "size-full max-h-full max-w-full overflow-y-auto overflow-x-hidden"
+        }
+      >
+        {children}
+      </section>
     </main>
   );
 };

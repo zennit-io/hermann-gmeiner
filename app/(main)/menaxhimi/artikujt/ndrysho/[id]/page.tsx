@@ -12,12 +12,17 @@ const Page = async ({ params }: DynamicRouteProps<"id">) => {
     <section className={"size-full py-3 pr-6"}>
       <div className={"flex w-full items-center gap-2 pb-1"}>
         <IconClipboardPlus stroke={1.5} />
-        <h1 className={"w-full text-4xl font-bold"}>Shto nje artikull të ri</h1>
+        <h1 className={"w-full text-4xl font-bold"}>
+          Ndysho artikullin: {articleMarkdown.title}
+        </h1>
       </div>
       <hr className={"border-foreground pb-3 "} />
       <Suspense fallback={null}>
         <ClientOnly>
-          <MDXEditor markdown={articleMarkdown.content} />
+          <MDXEditor
+            markdown={articleMarkdown.content}
+            defaultValues={articleMarkdown.data}
+          />
         </ClientOnly>
       </Suspense>
     </section>

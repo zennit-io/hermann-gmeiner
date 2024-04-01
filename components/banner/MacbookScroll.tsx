@@ -30,7 +30,6 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 import ZennitLogo from "@/icons/ZennitLogo";
-import { ClientOnly } from "@/components/general/ClientOnly";
 
 type MacbookScrollProps = {
   showGradient?: boolean;
@@ -38,6 +37,7 @@ type MacbookScrollProps = {
   badge?: ReactNode;
   children?: ReactNode;
   logo?: ReactNode;
+  parentRefToScroll?: React.MutableRefObject<HTMLDivElement | null>;
 };
 
 const parsePixelAmounts = (amount: `${number}px`) =>
@@ -49,11 +49,13 @@ const MacbookScroll = ({
   badge,
   children,
   logo,
+  parentRefToScroll,
 }: MacbookScrollProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
+    container: parentRefToScroll,
   });
   const [scaleFactor, setScaleFactor] = useState(0.35);
   useEffect(() => {
@@ -94,57 +96,55 @@ const MacbookScroll = ({
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   return (
-    <ClientOnly>
-      <div
-        ref={ref}
-        className="flex shrink-0 scale-[0.35] flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100  md:py-80"
+    <div
+      ref={ref}
+      className="flex h-full shrink-0 scale-[0.35] flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50  md:scale-100 md:py-80"
+    >
+      <motion.h2
+        style={{
+          translateY: textTransform,
+          opacity: textOpacity,
+        }}
+        className="mb-20 text-center text-3xl font-bold text-neutral-800 dark:text-white"
       >
-        <motion.h2
-          style={{
-            translateY: textTransform,
-            opacity: textOpacity,
-          }}
-          className="mb-20 text-center text-3xl font-bold text-neutral-800 dark:text-white"
-        >
-          {title}
-        </motion.h2>
-        {/* Lid */}
-        <MacbookLid
-          source={children}
-          scaleX={scaleX}
-          scaleY={scaleY}
-          rotate={rotate}
-          rounded={rounded}
-          translate={translate}
-        >
-          {logo || <ZennitLogo />}
-        </MacbookLid>
-        {/* Base area */}
-        <div className="relative -z-10 hidden h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200 dark:bg-[#272729] sm:block">
-          {/* above keyboard bar */}
-          <div className="relative h-10 w-full">
-            <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
-          </div>
-          <div className="relative flex">
-            <div className="mx-auto h-full w-[10%]  overflow-hidden">
-              <SpeakerGrid />
-            </div>
-            <div className="mx-auto h-full w-[80%]">
-              <Keypad />
-            </div>
-            <div className="mx-auto h-full w-[10%]  overflow-hidden">
-              <SpeakerGrid />
-            </div>
-          </div>
-          <Trackpad />
-          <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-t-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
-          {showGradient && (
-            <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
-          )}
-          {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
+        {title}
+      </motion.h2>
+      {/* Lid */}
+      <MacbookLid
+        source={children}
+        scaleX={scaleX}
+        scaleY={scaleY}
+        rotate={rotate}
+        rounded={rounded}
+        translate={translate}
+      >
+        {logo || <ZennitLogo />}
+      </MacbookLid>
+      {/* Base area */}
+      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200 dark:bg-[#272729]">
+        {/* above keyboard bar */}
+        <div className="relative h-10 w-full">
+          <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
         </div>
+        <div className="relative flex">
+          <div className="mx-auto h-full w-[10%]  overflow-hidden">
+            <SpeakerGrid />
+          </div>
+          <div className="mx-auto h-full w-[80%]">
+            <Keypad />
+          </div>
+          <div className="mx-auto h-full w-[10%]  overflow-hidden">
+            <SpeakerGrid />
+          </div>
+        </div>
+        <Trackpad />
+        <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-t-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
+        {showGradient && (
+          <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
+        )}
+        {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
       </div>
-    </ClientOnly>
+    </div>
   );
 };
 

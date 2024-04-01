@@ -182,7 +182,7 @@ const columns = [
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link
-                href={`/menaxhimi/artikujt/ndysho/${projectId}`}
+                href={`/menaxhimi/artikujt/ndrysho/${projectId}`}
                 className={"flex w-full items-center gap-2"}
               >
                 <IconEdit stroke={1.5} />

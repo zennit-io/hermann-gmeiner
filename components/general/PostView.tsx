@@ -27,7 +27,7 @@ const PostView = ({ postData }: PostViewProps) => {
           }
         >
           <div className={"flex items-center gap-2"}>
-            {postData.categories.map((category, i) => (
+            {postData.tags.map((category, i) => (
               <Badge key={i}>{category}</Badge>
             ))}
             <span className={"flex gap-1 font-light"}>

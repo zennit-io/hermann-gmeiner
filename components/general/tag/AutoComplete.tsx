@@ -23,7 +23,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
   maxTags,
   onTagAdd,
   allowDuplicates,
-                                                            placeholder,
+  placeholder,
   children,
 }) => {
   return (
@@ -31,47 +31,47 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
       <PopoverTrigger
         className={cn(
           "relative flex w-5 items-center justify-end",
-          tags.length === 0 && "w-full justify-between",
+          tags.length === 0 && "w-full justify-between"
         )}
         asChild
       >
-        <button classN
-        ,ame={"w-full truncate py-1.5 text-muted-foreground"}>
-        {tags.length === 0 && placeholder}
-        <span className={"rounded-full bg-foreground/20 p-1"}>
+        <button classN,ame={"w-full truncate py-1.5 text-muted-foreground"}>
+          {tags.length === 0 && placeholder}
+          <span className={"rounded-full bg-foreground/20 p-1"}>
             <IconChevronDown size={16} />
           </span>
-      </button>
-    </PopoverTrigger>
-  <PopoverContent className={"w-fit max-w-none p-2"} asChild>
-    <Command className="min-w-[400px] border">
-      {children}
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Suggestions">
-          {autocompleteOptions.map((option) => (
-            <CommandItem key={option.id}>
-              <div
-                className="w-full"
-                onClick={() => {
-                  if (maxTags && tags.length >= maxTags) return;
-                  if (
-                    !allowDuplicates &&
-                    tags.some((tag) => tag.text === option.text)
-                  )
-                    return;
-                  setTags([...tags, option]);
-                  onTagAdd?.(option.text);
-                }}
-              >
-                {option.text}
-              </div>
-            </CommandItem>
-          ))}
-        </CommandGroup>
-      </CommandList>
-    </Command>
-  </PopoverContent>;
-</Popover>
+        </button>
+      </PopoverTrigger>
+      <PopoverContent className={"w-fit max-w-none p-2"} asChild>
+        <Command className="min-w-[400px] border">
+          {children}
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Suggestions">
+              {autocompleteOptions.map((option) => (
+                <CommandItem key={option.id}>
+                  <div
+                    className="w-full"
+                    onClick={() => {
+                      if (maxTags && tags.length >= maxTags) return;
+                      if (
+                        !allowDuplicates &&
+                        tags.some((tag) => tag.text === option.text)
+                      )
+                        return;
+                      setTags([...tags, option]);
+                      onTagAdd?.(option.text);
+                    }}
+                  >
+                    {option.text}
+                  </div>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+      ;
+    </Popover>
   );
 };
