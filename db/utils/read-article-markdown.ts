@@ -23,10 +23,9 @@ export type Post = {
   contentHtml: string;
 } & PostMetadata;
 //
-const POSTS_DIRECTORY = "/app/static/articles";
 
 const readArticleMarkdown = async (id: number | string): Promise<Post> => {
-  const fullPath = path.join(POSTS_DIRECTORY, `${id}.md`);
+  const fullPath = path.join(process.env.ARTICLE_PATH, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);

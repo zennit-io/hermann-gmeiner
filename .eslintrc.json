@@ -16,6 +16,7 @@
     "@typescript-eslint/no-unused-vars": [
       "error"
     ],
+    "tailwindcss/no-custom-classname": "off",
     "no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
     "prettier/prettier": "warn"

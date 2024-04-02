@@ -1,7 +1,17 @@
 import React from "react";
-import { Command, CommandEmpty, CommandGroup, CommandItem, CommandList } from "@/components/general/Command";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandList,
+} from "@/components/general/Command";
 import { type Tag as TagType } from "./TagInput";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/general/Popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/general/Popover";
 import { IconChevronDown } from "@tabler/icons-react";
 import cn from "@/lib/cn";
 
@@ -35,7 +45,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
         )}
         asChild
       >
-        <button classN,ame={"w-full truncate py-1.5 text-muted-foreground"}>
+        <button className={"w-full truncate py-1.5 text-muted-foreground"}>
           {tags.length === 0 && placeholder}
           <span className={"rounded-full bg-foreground/20 p-1"}>
             <IconChevronDown size={16} />

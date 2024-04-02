@@ -19,7 +19,7 @@ type PostViewProps = {
 };
 const PostView = ({ postData }: PostViewProps) => {
   return (
-    <main className={"w-full"}>
+    <main className={"w-full px-4 md:px-0"}>
       <div className={"mx-auto max-w-5xl py-6"}>
         <div
           className={
@@ -37,11 +37,17 @@ const PostView = ({ postData }: PostViewProps) => {
           </div>
           <div className={"flex w-full gap-2"}>
             <div className={"flex grow flex-col gap-4"}>
-              <h1 className={"text-5xl font-bold"}>{postData.title}</h1>
-              <h1 className={"text-3xl text-foreground/60"}>
+              <h1 className={"text-3xl font-bold md:text-5xl"}>
+                {postData.title}
+              </h1>
+              <h1 className={"text-xl text-foreground/60 md:text-3xl"}>
                 {postData.subtitle}
               </h1>
-              <span className={"flex items-center gap-2 font-light"}>
+              <span
+                className={
+                  "flex items-center gap-2 text-xs font-light md:text-base"
+                }
+              >
                 Written by:
                 <Avatar>
                   <AvatarImage
@@ -65,7 +71,7 @@ const PostView = ({ postData }: PostViewProps) => {
         <article
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           className={
-            "prose max-w-full dark:prose-invert prose-img:mx-auto prose-img:rounded-md"
+            "prose-sm max-w-full dark:prose-invert md:prose-lg prose-img:mx-auto prose-img:rounded-md"
           }
         />
       </div>

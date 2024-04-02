@@ -8,7 +8,6 @@ import { readdirSync } from "node:fs";
 
 const asyncPipeline = promisify(pipeline);
 
-const POSTS_IMAGES_DIRECTORY = "/app/static/images";
 /**
  * This is a function that saves an image to the server and returns the path to the image
  * @param data - FormData containing the image
@@ -20,11 +19,11 @@ export const postImage = async (data: FormData) => {
   const image = data.get("image") as File;
   if (!image) throw new Error("No image provided");
 
-  const fileList = readdirSync("/app/static/images");
+  const fileList = readdirSync(process.env.PHOTO_PATH);
 
   const fileName =
     fileList.length + "." + (image.name.split(".").at(-1) ?? "png");
-  const filePath = path.join(POSTS_IMAGES_DIRECTORY, fileName);
+  const filePath = path.join(process.env.PHOTO_PATH, fileName);
 
   // ensuring that the directory exists
   const dir = path.dirname(filePath);

@@ -5,7 +5,7 @@ import ThemeProvider from "@/components/layout/ThemeProvider";
 //
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-import Navbar from "@/components/home/Navbar";
+import { Navbar } from "@/components/home/Navbar";
 import cn from "@/lib/cn";
 import { Toaster } from "@/components/general/Sonner";
 import type { LayoutProps } from "@/types/navigation/LayoutProps";

@@ -13,16 +13,15 @@ type CreateArticle = {
   thumbnail: string | null;
   description: string;
 };
-const POSTS_DIRECTORY = "/app/static/articles";
 export const createArticle = async ({
   content,
   thumbnail,
   description,
 }: CreateArticle) => {
   // read directory
-  const filesAndDirectories = fs.readdirSync(POSTS_DIRECTORY);
+  const filesAndDirectories = fs.readdirSync(process.env.ARTICLE_PATH);
   const files = filesAndDirectories.filter((name) => {
-    return fs.statSync(path.join(POSTS_DIRECTORY, name)).isFile();
+    return fs.statSync(path.join(process.env.ARTICLE_PATH, name)).isFile();
   });
   const id = files.length;
 
@@ -77,7 +76,7 @@ export const createArticle = async ({
     });
   }
   // Save the markdown content into a file
-  const filePath = path.join(POSTS_DIRECTORY, `${id}.md`);
+  const filePath = path.join(process.env.ARTICLE_PATH, `${id}.md`);
   fs.writeFileSync(filePath, content);
 
   return newArticle;

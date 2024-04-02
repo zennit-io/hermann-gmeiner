@@ -93,7 +93,7 @@ module.exports = {
         "spotlight": "spotlight 2s ease .75s 1 forwards",
       },
       keyframes: {
-        spotlight: {
+        "spotlight": {
           "0%": {
             opacity: 0,
             transform: "translate(-72%, -62%) scale(0.5)",
@@ -103,7 +103,7 @@ module.exports = {
             transform: "translate(-50%,-40%) scale(1)",
           },
         },
-        shimmer: {
+        "shimmer": {
           from: {
             backgroundPosition: "0 0",
           },
@@ -111,10 +111,18 @@ module.exports = {
             backgroundPosition: "-200% 0",
           },
         },
-        scroll: {
+        "scroll": {
           to: {
             transform: "translate(calc(-50% - 0.5rem))",
           },
+        },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       fontSize: {

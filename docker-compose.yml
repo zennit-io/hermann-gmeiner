@@ -6,7 +6,7 @@ services:
     build:
       network: host
       context: ./
-      target: dev
+      target: builder
       dockerfile: Dockerfile
     volumes:
       - .:/app
@@ -21,6 +21,8 @@ services:
     environment:
       DATABASE_URL: postgres://admin:adminadmin@db:5432/db
       AUTH_SECRET: BWuyOm5juK6o2fq1QW00lTplaKFdgpBBnMwb1SLDDEk=
+      ARTICLE_PATH: /app/static/articles
+      PHOTO_PATH: /app/static/photos
 
   db:
     image: postgres:13-alpine
@@ -33,6 +35,14 @@ services:
       POSTGRES_PASSWORD: adminadmin
     volumes:
       - db-data:/var/lib/postgresql/data
+    command: >
+      sh -c "
+        su - postgres -c 'pg_ctl start' &
+        until su - postgres -c 'pg_isready'; do sleep 1; done;
+        echo 'PostgreSQL is ready to accept connections';
+        wait %%;
+      "
+
 
   static:
     container_name: static

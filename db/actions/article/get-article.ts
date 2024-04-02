@@ -15,7 +15,10 @@ export const getArticle = async (id: number) => {
     )
     .then((articles) => articles[0]);
 
-  const markdownFile = fs.readFileSync(`/app/static/articles/${id}.md`, "utf8");
+  const markdownFile = fs.readFileSync(
+    `${process.env.ARTICLE_PATH}/${id}.md`,
+    "utf8"
+  );
   const { content, data } = matter(markdownFile);
   return {
     ...articleRecord,

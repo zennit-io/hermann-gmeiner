@@ -1,14 +1,18 @@
 FROM node:20-alpine as base
-RUN apk add --no-cache g++ make py3-pip libc6-compat
+RUN apk add --no-cache g++ make py3-pip libc6-compat postgresql-client
 WORKDIR /app
 COPY package*.json ./
+RUN  npm cache clean --force && npm install
 EXPOSE 3000
 
 FROM base as builder
 WORKDIR /app
 COPY . .
-RUN npm run build
+COPY wait-for-postgres.sh /wait-for-postgres.sh
+RUN chmod +x /wait-for-postgres.sh
 
+# Use the script before running npm build
+RUN /wait-for-postgres.sh db && npm run build
 
 FROM base as production
 WORKDIR /app
@@ -30,7 +34,5 @@ CMD npm start
 
 FROM base as dev
 ENV NODE_ENV=development
-RUN  npm cache clean --force && npm install
 COPY . .
-RUN npm install -g ts-node
 CMD npm run dev

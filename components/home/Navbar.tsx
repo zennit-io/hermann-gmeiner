@@ -14,11 +14,106 @@ import NavigationMenu, {
 import Switch from "@/components/general/Switch";
 import Button from "@/components/general/Button";
 //
-import { IconMoonStars, IconSun } from "@tabler/icons-react";
+import { IconMenu2, IconMoonStars, IconSun } from "@tabler/icons-react";
 //
-import ROUTES from "@/consts/routes";
+import ROUTES, { Route } from "@/consts/routes";
+import { useMediaQuery } from "@/components/general/credeza/use-media-query";
+import { screens } from "@/tailwind-globals";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/general/Sheet";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/general/Accordion";
 
-export function Navbar() {
+const MobileNavigationAccordion = ({ name, subRoutes, Icon }: Route) => {
+  return (
+    <AccordionItem value={name} key={name} className={"pt-2"}>
+      <AccordionTrigger className={"my-1 p-0 text-sm first:mt-0 last:mb-0"}>
+        <span className={"mb-1 flex items-center gap-2"}>
+          {Icon && <Icon size={16} />}
+          {name}
+        </span>
+      </AccordionTrigger>
+      <AccordionContent className={"space-y-1 p-2"}>
+        {subRoutes!.map(({ name, href, Icon, subRoutes }) =>
+          subRoutes ? (
+            <MobileNavigationAccordion
+              name={name}
+              subRoutes={subRoutes}
+              Icon={Icon}
+              key={name}
+            />
+          ) : (
+            <Link
+              href={href!}
+              key={name}
+              className={"my-1 flex items-center gap-2 first:mt-0 last:mb-0"}
+            >
+              {Icon && <Icon size={16} />}
+              {name}
+            </Link>
+          )
+        )}
+      </AccordionContent>
+    </AccordionItem>
+  );
+};
+const MobileNavbar = () => {
+  return (
+    <Sheet>
+      <div
+        className={
+          "absolute right-0 top-3 z-50 flex w-full items-center justify-between px-3"
+        }
+      >
+        <SheetTrigger>
+          <Button
+            variant={"icon"}
+            className={
+              "border border-foreground/20 bg-background p-3 shadow-inner hover:bg-background dark:shadow-white/40"
+            }
+          >
+            <IconMenu2 />
+          </Button>
+        </SheetTrigger>
+        <Button variant={"border"}>Apliko</Button>
+      </div>
+      <SheetContent side={"left"}>
+        <h2 className={"text-2xl font-semibold"}>Hermann Gmeiner</h2>
+        <hr className={"mb-4"} />
+        <Accordion type={"multiple"}>
+          {ROUTES.map(({ name, subRoutes, href, Icon }) => {
+            if (subRoutes)
+              return (
+                <MobileNavigationAccordion
+                  key={name}
+                  subRoutes={subRoutes}
+                  Icon={Icon}
+                  name={name}
+                  href={name}
+                />
+              );
+            return (
+              <Link
+                href={href!}
+                key={name}
+                className={
+                  "my-1 flex items-center gap-2 py-1 text-sm first:mt-0 last:mb-0"
+                }
+              >
+                {Icon && <Icon size={16} />}
+                {name}
+              </Link>
+            );
+          })}
+        </Accordion>
+      </SheetContent>
+    </Sheet>
+  );
+};
+const DesktopNavbar = () => {
   const themeProvider = useTheme();
   const isChecked = themeProvider.theme === "dark";
   return (
@@ -77,6 +172,8 @@ export function Navbar() {
       <Button variant={"border"}>Apliko</Button>
     </div>
   );
-}
-
-export default Navbar;
+};
+export const Navbar = () => {
+  const isMobile = useMediaQuery(`(max-width: ${screens.xs})`);
+  return isMobile ? <MobileNavbar /> : <DesktopNavbar />;
+};
