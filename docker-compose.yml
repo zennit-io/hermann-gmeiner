@@ -21,8 +21,8 @@ services:
     environment:
       DATABASE_URL: postgres://admin:adminadmin@db:5432/db
       AUTH_SECRET: BWuyOm5juK6o2fq1QW00lTplaKFdgpBBnMwb1SLDDEk=
-      ARTICLE_PATH: /app/static/articles
-      PHOTO_PATH: /app/static/photos
+      ARTICLE_PATH: /app/static-files/articles
+      PHOTO_PATH: /app/static-files/photos
 
   db:
     image: postgres:13-alpine
@@ -35,21 +35,13 @@ services:
       POSTGRES_PASSWORD: adminadmin
     volumes:
       - db-data:/var/lib/postgresql/data
-    command: >
-      sh -c "
-        su - postgres -c 'pg_ctl start' &
-        until su - postgres -c 'pg_isready'; do sleep 1; done;
-        echo 'PostgreSQL is ready to accept connections';
-        wait %%;
-      "
-
 
   static:
-    container_name: static
+    container_name: static-files
     image: nginx:alpine
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./static:/usr/share/nginx/html
+      - ./static-files:/usr/share/nginx/html
     ports:
       - "8080:8080"
 volumes:
